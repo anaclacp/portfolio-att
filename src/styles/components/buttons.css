@@ -1,0 +1,95 @@
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, #5C3EF4, #E040FB);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #E040FB, #5C3EF4);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-gradient:hover::before {
+  opacity: 1;
+}
+
+.btn-gradient span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Download CV Button */
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #5C3EF4, #E040FB);
+  border: none;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(92, 62, 244, 0.4);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(92, 62, 244, 0.5),
+    0 0 30px rgba(224, 64, 251, 0.3);
+}
+
+.download-btn .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.download-btn:hover .icon-wrapper {
+  transform: translateY(2px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.download-btn .arrow {
+  width: 12px;
+  height: 12px;
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+  transition: all 0.3s;
+}
+
+.download-btn:hover .arrow {
+  animation: bounce-down 0.6s ease infinite;
+}
+
+/* Skill tag */
+.skill-tag {
+  background: linear-gradient(135deg, rgba(92, 62, 244, 0.2), rgba(224, 64, 251, 0.1));
+  border: 1px solid rgba(165, 148, 249, 0.3);
+  transition: all 0.3s;
+}
+
+.skill-tag:hover {
+  background: linear-gradient(135deg, rgba(92, 62, 244, 0.4), rgba(224, 64, 251, 0.2));
+  border-color: rgba(224, 64, 251, 0.5);
+  transform: scale(1.05);
+}

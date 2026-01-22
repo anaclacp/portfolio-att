@@ -1,0 +1,30 @@
+/* Card with glow effect */
+.card-glow {
+  position: relative;
+  background: linear-gradient(135deg, rgba(92, 62, 244, 0.1), rgba(224, 64, 251, 0.05));
+  border: 1px solid rgba(165, 148, 249, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glow:hover {
+  border-color: rgba(224, 64, 251, 0.5);
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 40px rgba(92, 62, 244, 0.2),
+    0 0 60px rgba(224, 64, 251, 0.1);
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(224, 64, 251, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
