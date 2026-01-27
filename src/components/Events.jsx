@@ -8,7 +8,7 @@ const events = [
     location: "São Paulo, SP",
     type: "Conferência / Workshop",
     image: "/images/oracle-dev-tour.jpg",
-    linkedin: "https://www.linkedin.com/posts/anaclacp/_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-uMbr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-mO92?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
     title: "Palestra: Introdução ao n8n",
@@ -17,7 +17,7 @@ const events = [
     location: "Citel, Ribeirão Preto, SP",
     type: "Palestra",
     image: "/images/palestra-n8n.jpg",
-    linkedin: "https://www.linkedin.com/posts/anaclacp/_n8n-automaaexaeto-citel-activity-7296293143128244226-StC5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-automaaexaeto-citel-activity-7296293143128244226-6FPq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
     title: "Evento CCM: IA em Ação",
