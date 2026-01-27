@@ -1,6 +1,6 @@
 import SkillTag from './ui/SkillTag'
 
-const skills = ['Python', 'RAG', 'LangChain', 'AWS', 'OpenAI', 'FastAPI', 'Docker', 'Javascript','Next.ts','TypeScript','PHP','n8n']
+const skills = ['Python', 'RAG', 'LangChain', 'AWS', 'OpenAI', 'FastAPI', 'Docker', 'Javascript','Next.js','TypeScript','PHP','n8n']
 
 function About() {
   return (
@@ -27,16 +27,20 @@ function About() {
           <div>
             <div className="space-y-6 text-gray-300 font-body">
               <p className="text-lg leading-relaxed">
-                <span className="text-2xl mr-2">👩🏻‍💻</span>
-                Último semestre de <span className="text-pink-vibrant">Engenharia da Computação</span> na Universidade de Ribeirão Preto
+                Estou no último semestre de <span className="text-pink-vibrant">Engenharia da Computação</span> na UNAERP, 
+                e trabalho como desenvolvedora de IA na <span className="text-purple-light">D3 Works</span>, onde construo 
+                sistemas inteligentes que conversam com documentos e automatizam processos.
               </p>
               <p className="text-lg leading-relaxed">
-                <span className="text-2xl mr-2">💻</span>
-                Desenvolvedora de IA na <span className="text-purple-light">D3 Works</span>, construindo sistemas com fluxos inteligentes de IA
+                Meu dia a dia envolve criar <span className="text-pink-magenta">pipelines RAG</span>, desenvolver{' '}
+                <span className="text-purple-medium">agentes autônomos</span> e transformar diversos dados em 
+                informação útil e flexível. Adoro quando código e criatividade se encontram, seja numa arquitetura bem pensada 
+                ou num projeto de visão computacional.
               </p>
               <p className="text-lg leading-relaxed">
-                <span className="text-2xl mr-2">🧠</span>
-                Especialista em <span className="text-pink-magenta">RAG pipelines</span>, <span className="text-purple-medium">agentes autônomos</span> e processamento e preparação de documentos (ETL) para IA.
+                Quando não estou debugando código, provavelmente estou testando alguma ferramenta nova de IA ou 
+                pensando em como otimizar algum fluxo. A interseção entre tecnologia e impacto real é o que 
+                me move.
               </p>
             </div>
 

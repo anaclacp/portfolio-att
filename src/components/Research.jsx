@@ -14,7 +14,7 @@ const papers = [
     year: "2024",
     type: "Iniciação Científica",
     institution: "Universidade de Ribeirão Preto",
-    linkedin: "https://www.linkedin.com/posts/ana-clara-pereira-51264a21a_neste-ano-participei-do-25%C2%BA-conic-da-universidade-activity-7263220922872963073-u7HE?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp/_neste-ano-participei-do-25%C2%BA-conic-da-universidade-activity-7263220922872963073-u7HE?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
     image: "/images/iniciacao-cientifica-2.jpg"
   }
 ]

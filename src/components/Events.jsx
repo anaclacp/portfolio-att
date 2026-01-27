@@ -8,7 +8,7 @@ const events = [
     location: "São Paulo, SP",
     type: "Conferência / Workshop",
     image: "/images/oracle-dev-tour.jpg",
-    linkedin: "https://www.linkedin.com/posts/ana-clara-pereira-51264a21a_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-uMbr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp/_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-uMbr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
     title: "Palestra: Introdução ao n8n",
@@ -17,7 +17,7 @@ const events = [
     location: "Citel, Ribeirão Preto, SP",
     type: "Palestra",
     image: "/images/palestra-n8n.jpg",
-    linkedin: "https://www.linkedin.com/posts/ana-clara-pereira-51264a21a_n8n-automaaexaeto-citel-activity-7296293143128244226-StC5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp/_n8n-automaaexaeto-citel-activity-7296293143128244226-StC5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
     title: "Evento CCM: IA em Ação",
@@ -32,7 +32,7 @@ const events = [
     description: "Quer conhecer outros eventos, palestras e workshops que participei? Acesse meu perfil no LinkedIn para ver a lista completa!",
     type: "LinkedIn",
     isCallToAction: true,
-    linkedin: "https://www.linkedin.com/in/ana-clara-pereira-51264a21a/"
+    linkedin: "https://www.linkedin.com/in/anaclacp/"
   }
 ]
 
