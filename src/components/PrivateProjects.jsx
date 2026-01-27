@@ -6,7 +6,7 @@ const privateProjects = [
   },
   {
     title: "ETL Completo",
-    description: "Pipeline de ETL robusto para processamento de documentos em larga escala, com ingestão de múltiplas fontes, transformação e carga em banco vetorial.",
+    description: "Pipeline de ETL completo para processamento de documentos em larga escala, com ingestão de múltiplas fontes, transformação e carga em banco vetorial.",
     tags: ["Python", "AWS Lambda", "SQS", "Clean Architecture"]
   },
   {
