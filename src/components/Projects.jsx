@@ -1,9 +1,9 @@
 const projects = [
   {
-    title: "RAG Documentation System",
-    description: "Sistema de documentação inteligente com RAG, processando WordPress e Google Drive para retrieval via Qdrant.",
-    tags: ["Python", "RAG", "Qdrant", "OpenAI", "AWS"],
-    github: "#",
+    title: "RAG System",
+    description: "Sistema avançado de Retrieval-Augmented Generation (RAG) para análise de documentos financeiros da SEC, utilizando busca híbrida (Dense + Sparse + ColBERT) e integração com LLM para geração de respostas contextualizadas",
+    tags: ["Python", "RAG", "Qdrant", "Gemini", "Financial Docs"],
+    github: "https://github.com/anaclacp/rag-implementation-",
     demo: null
   },
   {
