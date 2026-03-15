@@ -10,7 +10,14 @@ function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const links = ['Sobre', 'Projetos', 'Pesquisa', 'Eventos', 'Contato']
+  const links = [
+    { label: 'Projetos de IA', href: '#projetos' },
+    { label: 'Experiência', href: '#experiencia' },
+    { label: 'Stack', href: '#stack' },
+    { label: 'Sobre', href: '#sobre' },
+    { label: 'Pesquisa', href: '#pesquisa' },
+    { label: 'Contato', href: '#contato' },
+  ]
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-dark-900/80 backdrop-blur-xl border-b border-purple-deep/20' : ''}`}>
@@ -19,12 +26,12 @@ function Navigation() {
         <div className="flex items-center gap-8">
           {links.map((link, i) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={link.label}
+              href={link.href}
               className="font-body text-sm text-gray-300 hover:text-pink-vibrant transition-colors link-animate hidden md:block"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              {link}
+              {link.label}
             </a>
           ))}
           <DownloadButton href="/cv.pdf" />
