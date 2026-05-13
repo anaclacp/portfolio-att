@@ -1,33 +1,19 @@
 const stackGroups = [
   {
     category: "IA / ML",
-    items: [
-      "LLM APIs", "RAG Pipelines", "AI Agents", "LangChain",
-      "scikit-learn", "PyTorch", "TensorFlow", "YOLO",
-      "HuggingFace", "Computer Vision", "Vector Search"
-    ]
+    items: ["LangChain", "YOLO", "Computer Vision", "scikit-learn", "PyTorch"]
   },
   {
     category: "Backend",
-    items: [
-      "Python", "FastAPI", "Django", "Flask",
-      "REST APIs", "Web Scraping", "n8n"
-    ]
-  },
-  {
-    category: "Dados & Infra",
-    items: [
-      "Qdrant", "Vector Databases", "ETL Pipelines",
-      "AWS Lambda", "AWS SQS", "Docker"
-    ]
+    items: ["Python", "FastAPI", "Node.js", "JavaScript", "Rust"]
   },
   {
     category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "JavaScript"]
+    items: ["React", "Next.js", "TypeScript"]
   },
   {
-    category: "Engenharia",
-    items: ["Clean Architecture", "GitHub Actions", "CI/CD", "Git"]
+    category: "Infra & DevOps",
+    items: ["Docker", "AWS", "Oracle", "GitHub Actions", "CI/CD", "n8n"]
   }
 ]
 
@@ -37,7 +23,7 @@ function TechStack() {
       <div className="max-w-5xl mx-auto">
         <h2 className="section-title text-4xl md:text-5xl mb-6 text-center">Stack Tecnológica</h2>
         <p className="text-gray-400 text-center mb-20 max-w-2xl mx-auto">
-          Tecnologias com as quais trabalho no dia a dia , do modelo à produção
+          Tecnologias com as quais trabalho no dia a dia, do modelo à produção
         </p>
 
         <div className="space-y-10">

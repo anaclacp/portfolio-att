@@ -11,11 +11,11 @@ function Navigation() {
   }, [])
 
   const links = [
-    { label: 'Projetos de IA', href: '#projetos' },
-    { label: 'Experiência', href: '#experiencia' },
-    { label: 'Stack', href: '#stack' },
     { label: 'Sobre', href: '#sobre' },
-    { label: 'Pesquisa', href: '#pesquisa' },
+    { label: 'Projetos', href: '#projetos' },
+    { label: 'Stack', href: '#stack' },
+    { label: 'Acadêmico', href: '#academico' },
+    { label: 'Eventos', href: '#eventos' },
     { label: 'Contato', href: '#contato' },
   ]
 

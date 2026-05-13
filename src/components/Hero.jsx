@@ -1,6 +1,6 @@
 import BlurText from './ui/BlurText'
 
-const techPills = ['Python', 'RAG', 'LLM APIs', 'FastAPI', 'Vector DB', 'AI Agents', 'React']
+// const techPills = ['Python', 'RAG', 'LLM APIs', 'FastAPI', 'Vector DB', 'AI Agents', 'React']
 
 function Hero() {
   return (
@@ -24,20 +24,20 @@ function Hero() {
           />
         </div>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-4 slide-up" style={{ animationDelay: '800ms' }}>
-          Desenvolvo sistemas de IA , pipelines RAG, agentes LLM e automações , focados em resolver problemas reais do mundo corporativo.
+          Desenvolvo sistemas de IA, pipelines RAG, agentes LLM e automações focados em resolver problemas reais do mundo corporativo.
         </p>
         <p className="text-gray-500 text-base max-w-xl mx-auto mb-8 slide-up" style={{ animationDelay: '900ms' }}>
-          Experiência com integração de LLMs em produção, busca semântica e construção de APIs robustas com Python e FastAPI.
+          Experiência com integração de LLMs em produção, busca semântica e construção de APIs em Python e FastAPI.
         </p>
 
-        {/* Tech Stack Pills */}
+        {/* Tech Stack Pills
         <div className="flex flex-wrap gap-2 justify-center mb-10 slide-up" style={{ animationDelay: '950ms' }}>
           {techPills.map((tech) => (
             <span key={tech} className="text-xs font-mono text-purple-light bg-purple-deep/20 border border-purple-deep/40 px-3 py-1.5 rounded-full">
               {tech}
             </span>
           ))}
-        </div>
+        </div> */}
 
         <div className="flex flex-wrap gap-4 justify-center slide-up" style={{ animationDelay: '1000ms' }}>
           <a href="#projetos" className="btn-gradient px-8 py-3 rounded-full font-body font-medium">

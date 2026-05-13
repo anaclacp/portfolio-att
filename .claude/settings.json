@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:\\\\Users\\\\Ana Clara\\\\Desktop\\\\code\\\\personal\\\\tcc\")",
+      "Read(//c/Users/Ana Clara/Desktop/code/personal/tcc/**)"
+    ]
+  }
+}

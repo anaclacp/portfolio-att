@@ -1,9 +1,8 @@
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
-import Projects from './components/Projects'
-import PrivateProjects from './components/PrivateProjects'
-import TechStack from './components/TechStack'
 import About from './components/About'
+import Projects from './components/Projects'
+import TechStack from './components/TechStack'
 import Research from './components/Research'
 import Events from './components/Events'
 import Contact from './components/Contact'
@@ -16,10 +15,9 @@ function App() {
       <Background />
       <Navigation />
       <Hero />
-      <Projects />
-      <PrivateProjects />
-      <TechStack />
       <About />
+      <Projects />
+      <TechStack />
       <Research />
       <Events />
       <Contact />
