@@ -1,3 +1,23 @@
+/* Design tokens */
+:root {
+  --bg: #0A0A0F;
+  --bg-soft: #101018;
+  --surface: #15151F;
+  --surface-hover: #1C1C29;
+
+  --text: #F7F3FF;
+  --text-muted: #A7A0B8;
+
+  --primary: #A594F9;
+  --primary-soft: #7C6CF2;
+
+  --accent: #D8A7B1;
+  --accent-soft: #FAB8D6;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
 /* Base styles */
 * {
   margin: 0;
@@ -6,8 +26,8 @@
 }
 
 body {
-  background: #0a0a0f;
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
 }
@@ -23,11 +43,11 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #12121a;
+  background: var(--bg-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #5C3EF4, #E040FB);
+  background: var(--primary-soft);
   border-radius: 4px;
 }
 
@@ -40,47 +60,46 @@ html {
   height: 100%;
   z-index: -1;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(92, 62, 244, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(224, 64, 251, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(115, 113, 252, 0.05) 0%, transparent 70%),
-    #0a0a0f;
+    radial-gradient(ellipse at 20% 20%, rgba(124, 108, 242, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(216, 167, 177, 0.06) 0%, transparent 55%),
+    var(--bg);
 }
 
 /* Floating orbs */
 .orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
-  animation: float 20s ease-in-out infinite;
+  filter: blur(140px);
+  opacity: 0.18;
+  animation: float 28s ease-in-out infinite;
   pointer-events: none;
 }
 
 .orb-1 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #5C3EF4, #E040FB);
-  top: -100px;
-  left: -100px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, var(--primary-soft), transparent 70%);
+  top: -120px;
+  left: -120px;
   animation-delay: 0s;
 }
 
 .orb-2 {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, #D663BE, #7371FC);
-  bottom: -50px;
-  right: -50px;
-  animation-delay: -7s;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  animation-delay: -10s;
 }
 
 .orb-3 {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, #9C27B0, #FAB8D6);
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, var(--primary), transparent 70%);
   top: 50%;
   left: 50%;
-  animation-delay: -14s;
+  animation-delay: -18s;
 }
 
 /* Noise texture overlay */
@@ -92,25 +111,26 @@ html {
   height: 100%;
   pointer-events: none;
   z-index: 1000;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Section title styling */
 .section-title {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  background: linear-gradient(135deg, #fff, #A594F9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-/* Glowing text */
+.section-title .accent {
+  color: var(--primary);
+}
+
+/* Soft text accent (replaces heavy glow) */
 .glow-text {
-  text-shadow:
-    0 0 20px rgba(224, 64, 251, 0.5),
-    0 0 40px rgba(92, 62, 244, 0.3);
+  color: var(--text);
+  text-shadow: 0 0 24px rgba(165, 148, 249, 0.18);
 }
 
 /* Image container */
@@ -124,7 +144,7 @@ html {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(92, 62, 244, 0.3), rgba(224, 64, 251, 0.2));
+  background: linear-gradient(135deg, rgba(124, 108, 242, 0.18), rgba(216, 167, 177, 0.12));
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 1;
@@ -132,4 +152,10 @@ html {
 
 .image-container:hover::before {
   opacity: 1;
+}
+
+/* Subtle divider */
+.divider-soft {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
