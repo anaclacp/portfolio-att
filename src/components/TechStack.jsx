@@ -1,7 +1,7 @@
 const stackGroups = [
   {
     category: "IA & Dados",
-    items: ["LLMs", "RAG", "Qdrant", "Embeddings", "Agentes", "Prompt engineering", "LangChain"]
+    items: ["LLMs", "RAG", "Qdrant", "Embeddings", "Agentes", "Vector Search", "Hybrid Search", "ETL", "Pipelines", "Prompts"]
   },
   {
     category: "Back-end",
