@@ -14,8 +14,8 @@ function Freelance() {
               Disponível para projetos freelancer
             </h2>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-              Posso ajudar com desenvolvimento de sistemas web, APIs, automações, integrações com IA,
-              RAG, agentes, melhorias de performance em projetos Python e deploy de aplicações.
+              Posso ajudar com sistemas web, APIs, automações, integrações com IA, RAG, agentes,
+              melhorias de performance em Python e deploy de aplicações.
             </p>
           </div>
           <div className="shrink-0">
