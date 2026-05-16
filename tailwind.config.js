@@ -8,24 +8,24 @@ export default {
     extend: {
       colors: {
         purple: {
-          deep: '#5C3EF4',
-          medium: '#7371FC',
-          soft: '#9C27B0',
+          deep: '#7C6CF2',
+          medium: '#8675F5',
+          soft: '#A594F9',
           light: '#A594F9',
-          pale: '#CDC1FF',
+          pale: '#C9BCFF',
         },
         pink: {
-          vibrant: '#E040FB',
-          magenta: '#D663BE',
+          vibrant: '#D8A7B1',
+          magenta: '#C9909A',
           soft: '#FAB8D6',
-          rose: '#AB47BC',
-          blush: '#BA68C8',
+          rose: '#C49AA1',
+          blush: '#D4ADB4',
         },
         dark: {
-          900: '#0a0a0f',
-          800: '#12121a',
-          700: '#1a1a25',
-          600: '#252530',
+          900: '#0A0A0F',
+          800: '#101018',
+          700: '#15151F',
+          600: '#1C1C29',
         }
       },
       fontFamily: {

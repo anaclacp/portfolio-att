@@ -9,9 +9,9 @@
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #5C3EF4, #E040FB);
-  transition: width 0.3s;
+  height: 1px;
+  background: var(--primary);
+  transition: width 0.25s ease;
 }
 
 .link-animate:hover::after {
@@ -20,18 +20,17 @@
 
 /* Navigation dots */
 .nav-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: rgba(165, 148, 249, 0.3);
-  transition: all 0.3s;
+  background: rgba(167, 160, 184, 0.3);
+  transition: all 0.25s;
   cursor: pointer;
   border: none;
 }
 
 .nav-dot.active {
-  background: #E040FB;
-  box-shadow: 0 0 15px rgba(224, 64, 251, 0.5);
+  background: var(--primary);
   transform: scale(1.2);
 }
 
