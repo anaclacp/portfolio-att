@@ -33,9 +33,15 @@ function About() {
             performáticas, escaláveis e bem estruturadas.
           </p>
           <p className="text-base md:text-lg leading-relaxed text-gray-400">
-            Atualmente atuo na <span className="text-purple-light">Citel</span> e estou no último
-            semestre de Engenharia da Computação na UNAERP. Em paralelo, atendo projetos freelance
-            envolvendo IA, automações e backend.
+            Sou formada em Engenharia da Computação pela <span className="text-purple-light">UNAERP</span> e
+            atuo na <span className="text-purple-light">Citel</span>, criando soluções internas e externas
+            com IA integrada. O trabalho vai além disso: automação de processos, ETL, desenvolvimento e
+            entrega rápida, além de montar os deploys e a observabilidade dos sistemas.
+          </p>
+          <p className="text-base md:text-lg leading-relaxed text-gray-400">
+            Atualmente estou estudando <span className="text-purple-light">Go</span> e desenvolvendo o
+            Go Ledger API, uma API de controle financeiro com pegada fintech, envolvendo contas, transações,
+            importação de dados e processamento assíncrono.
           </p>
         </div>
       </div>

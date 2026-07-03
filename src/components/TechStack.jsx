@@ -5,7 +5,7 @@ const stackGroups = [
   },
   {
     category: "Back-end",
-    items: ["Python", "FastAPI", "Node.js", "PostgreSQL", "MySQL", "Docker"]
+    items: ["Python", "FastAPI", "Go", "Node.js", "PostgreSQL", "MySQL", "MongoDB", "Docker"]
   },
   {
     category: "Front-end",

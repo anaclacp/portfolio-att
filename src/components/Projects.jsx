@@ -4,23 +4,45 @@ import Modal from './ui/Modal'
 const projects = [
   {
     title: "ChefAI",
-    short: "App mobile que sugere receitas a partir da despensa real do usuário, usando OCR e LLM.",
+    short: "Assistente culinário que automatiza a gestão da despensa doméstica: identifica alimentos por foto e nota fiscal e sugere receitas personalizadas.",
     highlights: [
-      "Cadastro de ingredientes por OCR via câmera",
-      "Sugestões de receitas com LLM (Gemini)",
-      "Autenticação JWT e favoritos persistentes",
+      "Identificação de alimentos por foto da despensa e por nota fiscal (Gemini)",
+      "Assistente conversacional que sugere receitas conforme restrições alimentares",
+      "Backend próprio: orquestração do modelo, validação estruturada e enriquecimento de contexto",
     ],
-    tags: ["React Native", "Expo", "FastAPI", "PostgreSQL", "Gemini", "OCR", "JWT"],
-    status: "TCC em desenvolvimento",
-    problem: "Decidir o que cozinhar com os ingredientes que já estão em casa gera desperdício e cansaço mental. Receitas online raramente partem da despensa real do usuário.",
-    solution: "App mobile que une OCR para cadastro rápido de ingredientes e LLM (Gemini) para sugerir receitas personalizadas a partir da despensa digital do usuário.",
+    tags: ["React Native", "Expo", "FastAPI", "PostgreSQL", "Gemini", "Multimodal", "NLP", "JWT"],
+    status: "TCC · Nota 10",
+    problem: "O controle do estoque doméstico de alimentos ainda é majoritariamente manual, sujeito a esquecimentos, desperdício e compras duplicadas. Receitas online raramente partem da despensa real do usuário.",
+    solution: "Assistente culinário inteligente que integra o modelo multimodal Gemini e processamento de linguagem natural para automatizar a gestão da despensa. Identifica alimentos a partir de fotos e de notas fiscais, organiza um inventário digital revisável pelo usuário e, com base nele e nas restrições cadastradas, sugere receitas personalizadas via assistente conversacional.",
     implemented: [
-      "Despensa digital com cadastro por OCR via câmera",
-      "Chat com IA para sugestão de receitas personalizadas",
-      "Sistema de favoritos persistente",
-      "Autenticação JWT com perfil de usuário",
+      "Identificação de alimentos por foto da despensa e por nota fiscal (modelo multimodal Gemini)",
+      "Inventário digital revisável pelo usuário",
+      "Assistente conversacional de receitas com base em preferências e restrições alimentares",
+      "Backend próprio para orquestração do modelo, validação estruturada das respostas e enriquecimento dinâmico de contexto",
+      "App móvel multiplataforma com autenticação JWT e favoritos persistentes",
     ],
-    note: "Repositório privado até a apresentação do TCC. Conclusão prevista para agosto de 2026.",
+    images: ["/images/chefai-tcc-apresentacao.jpg"],
+    note: "Monografia em Engenharia de Computação (UNAERP, 2026), defendida e aprovada com nota máxima (10). A avaliação exploratória apontou alta acurácia na identificação de itens e receitas coerentes e aderentes às restrições alimentares. Repositório fechado em evolução para virar um produto.",
+  },
+  {
+    title: "Go Ledger API",
+    short: "API de controle financeiro com pegada fintech: contas, transações, importação e processamento assíncrono.",
+    highlights: [
+      "Contas, categorias e transações com resumo mensal",
+      "Importação de transações e processamento assíncrono",
+      "PostgreSQL, Docker e cobertura de testes",
+    ],
+    tags: ["Go", "PostgreSQL", "MongoDB", "Docker", "REST API", "Async"],
+    status: "Em desenvolvimento",
+    problem: "Controlar finanças com múltiplas contas, categorias e importação de extratos exige um backend confiável, com processamento assíncrono e dados consistentes.",
+    solution: "Um mini sistema financeiro em Go com contas, transações, categorias, resumo mensal, importação de arquivos e processamento assíncrono, estruturado para escalar.",
+    implemented: [
+      "Usuários, contas, categorias e transações",
+      "Resumo mensal e importação de transações",
+      "Processamento assíncrono e logs",
+      "Testes, Docker e PostgreSQL (MongoDB opcional)",
+    ],
+    note: "Projeto de estudo em Go, em desenvolvimento. Foco em backend performático e boas práticas.",
   },
   {
     title: "RAG System",
@@ -190,6 +212,19 @@ function ProjectDetails({ project }) {
         </h3>
         {project.status && <StatusChip status={project.status} />}
       </div>
+
+      {project.images && project.images.length > 0 && (
+        <div className={`mb-5 ${project.images.length > 1 ? "grid grid-cols-1 sm:grid-cols-2 gap-3" : ""}`}>
+          {project.images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${project.title} — apresentação`}
+              className="w-full h-auto rounded-lg border border-white/5"
+            />
+          ))}
+        </div>
+      )}
 
       <div className="space-y-5 text-sm md:text-base">
         <section>
