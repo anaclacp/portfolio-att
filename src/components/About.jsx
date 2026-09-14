@@ -1,9 +1,13 @@
+import { useLanguage } from '../i18n/LanguageContext'
+
 function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="sobre" className="py-32 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="section-title text-3xl md:text-4xl mb-12 text-center">
-          Sobre <span className="accent">mim</span>
+          {t.about.titleLead} <span className="accent">{t.about.titleAccent}</span>
         </h2>
 
         {/* Avatar */}
@@ -22,26 +26,22 @@ function About() {
         {/* Text */}
         <div className="space-y-5 text-gray-300 font-body text-center md:text-left">
           <p className="text-base md:text-lg leading-relaxed">
-            Sou desenvolvedora <span className="text-purple-light">Full Stack Pleno</span> com foco em
-            Inteligência Artificial aplicada. Trabalho principalmente com Python, TypeScript, React,
-            FastAPI, bancos de dados, APIs e integrações com LLMs.
+            {t.about.p1Before}
+            <span className="text-purple-light">{t.about.p1Highlight1}</span>
+            {t.about.p1Middle}
+            <span className="text-purple-light">{t.about.p1Highlight2}</span>
+            {t.about.p1After}
           </p>
           <p className="text-base md:text-lg leading-relaxed">
-            Tenho interesse especial em criar sistemas que usam IA de forma prática: agentes, RAG,
-            automações, pipelines de dados e ferramentas que resolvem problemas reais. Também estou
-            sempre acompanhando novas tecnologias e estudando formas de construir soluções mais
-            performáticas, escaláveis e bem estruturadas.
+            {t.about.p2}
           </p>
           <p className="text-base md:text-lg leading-relaxed text-gray-400">
-            Sou formada em Engenharia da Computação pela <span className="text-purple-light">UNAERP</span> e
-            atuo na <span className="text-purple-light">Citel</span>, criando soluções internas e externas
-            com IA integrada. O trabalho vai além disso: automação de processos, ETL, desenvolvimento e
-            entrega rápida, além de montar os deploys e a observabilidade dos sistemas.
+            {t.about.p3Before}
+            <span className="text-purple-light">{t.about.p3Highlight}</span>
+            {t.about.p3After}
           </p>
           <p className="text-base md:text-lg leading-relaxed text-gray-400">
-            Atualmente estou estudando <span className="text-purple-light">Go</span> e desenvolvendo o
-            Go Ledger API, uma API de controle financeiro com pegada fintech, envolvendo contas, transações,
-            importação de dados e processamento assíncrono.
+            {t.about.p4}
           </p>
         </div>
       </div>

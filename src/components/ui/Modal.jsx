@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 function Modal({ open, onClose, children }) {
+  const { t } = useLanguage()
+
   useEffect(() => {
     if (!open) return
 
@@ -34,7 +37,7 @@ function Modal({ open, onClose, children }) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-          aria-label="Fechar"
+          aria-label={t.modal.close}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

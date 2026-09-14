@@ -1,4 +1,8 @@
+import { useLanguage } from '../../i18n/LanguageContext'
+
 function DownloadButton({ href = "#", onClick }) {
+  const { t } = useLanguage()
+
   const handleClick = (e) => {
     if (onClick) {
       e.preventDefault()
@@ -21,7 +25,7 @@ function DownloadButton({ href = "#", onClick }) {
           <path d="M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </span>
-      <span>Baixar CV</span>
+      <span>{t.nav.downloadCv}</span>
     </a>
   )
 }

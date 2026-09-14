@@ -1,126 +1,29 @@
 import { useState } from 'react'
 import Modal from './ui/Modal'
+import { useLanguage } from '../i18n/LanguageContext'
 
-const projects = [
+/* Dados independentes de idioma, na mesma ordem de t.projects.items */
+const projectMeta = [
   {
-    title: "ChefAI",
-    short: "Assistente culinário que automatiza a gestão da despensa doméstica: identifica alimentos por foto e nota fiscal e sugere receitas personalizadas.",
-    highlights: [
-      "Identificação de alimentos por foto da despensa e por nota fiscal (Gemini)",
-      "Assistente conversacional que sugere receitas conforme restrições alimentares",
-      "Backend próprio: orquestração do modelo, validação estruturada e enriquecimento de contexto",
-    ],
     tags: ["React Native", "Expo", "FastAPI", "PostgreSQL", "Gemini", "Multimodal", "NLP", "JWT"],
-    status: "TCC · Nota 10",
-    problem: "O controle do estoque doméstico de alimentos ainda é majoritariamente manual, sujeito a esquecimentos, desperdício e compras duplicadas. Receitas online raramente partem da despensa real do usuário.",
-    solution: "Assistente culinário inteligente que integra o modelo multimodal Gemini e processamento de linguagem natural para automatizar a gestão da despensa. Identifica alimentos a partir de fotos e de notas fiscais, organiza um inventário digital revisável pelo usuário e, com base nele e nas restrições cadastradas, sugere receitas personalizadas via assistente conversacional.",
-    implemented: [
-      "Identificação de alimentos por foto da despensa e por nota fiscal (modelo multimodal Gemini)",
-      "Inventário digital revisável pelo usuário",
-      "Assistente conversacional de receitas com base em preferências e restrições alimentares",
-      "Backend próprio para orquestração do modelo, validação estruturada das respostas e enriquecimento dinâmico de contexto",
-      "App móvel multiplataforma com autenticação JWT e favoritos persistentes",
-    ],
     images: ["/images/chefai-tcc-apresentacao.jpg"],
-    note: "Monografia em Engenharia de Computação (UNAERP, 2026), defendida e aprovada com nota máxima (10). A avaliação exploratória apontou alta acurácia na identificação de itens e receitas coerentes e aderentes às restrições alimentares. Repositório fechado em evolução para virar um produto.",
   },
   {
-    title: "Go Ledger API",
-    short: "API de controle financeiro com pegada fintech: contas, transações, importação e processamento assíncrono.",
-    highlights: [
-      "Contas, categorias e transações com resumo mensal",
-      "Importação de transações e processamento assíncrono",
-      "PostgreSQL, Docker e cobertura de testes",
-    ],
     tags: ["Go", "PostgreSQL", "MongoDB", "Docker", "REST API", "Async"],
-    status: "Em desenvolvimento",
-    problem: "Controlar finanças com múltiplas contas, categorias e importação de extratos exige um backend confiável, com processamento assíncrono e dados consistentes.",
-    solution: "Um mini sistema financeiro em Go com contas, transações, categorias, resumo mensal, importação de arquivos e processamento assíncrono, estruturado para escalar.",
-    implemented: [
-      "Usuários, contas, categorias e transações",
-      "Resumo mensal e importação de transações",
-      "Processamento assíncrono e logs",
-      "Testes, Docker e PostgreSQL (MongoDB opcional)",
-    ],
-    note: "Projeto de estudo em Go, em desenvolvimento. Foco em backend performático e boas práticas.",
   },
   {
-    title: "RAG System",
-    short: "Pipeline RAG híbrido com busca densa, esparsa e reranking via ColBERT sobre documentos da SEC.",
-    highlights: [
-      "Busca híbrida: Dense + Sparse + ColBERT",
-      "Reranking para maior precisão de recuperação",
-      "Respostas geradas por LLM com contexto",
-    ],
     tags: ["Python", "RAG", "Qdrant", "Gemini", "ColBERT", "HuggingFace"],
     github: "https://github.com/anaclacp/rag-implementation-",
-    problem: "Analisar centenas de documentos financeiros da SEC manualmente é inviável. Encontrar trechos relevantes demanda horas de leitura.",
-    solution: "Pipeline RAG híbrido com busca densa, esparsa e reranking via ColBERT para recuperação precisa de informações e geração de respostas contextualizadas com LLM.",
-    implemented: [
-      "Ingestão e chunking de documentos PDF",
-      "Busca híbrida: Dense + Sparse + ColBERT",
-      "Reranking para maior precisão",
-      "Respostas geradas por LLM com contexto",
-    ],
   },
   {
-    title: "Agentic Support Router",
-    short: "Sistema multi-agente para roteamento dinâmico de tickets de suporte com FastAPI.",
-    highlights: [
-      "Roteamento por intenção do usuário",
-      "Function calling para ações concretas",
-      "Prompt chaining entre agentes especializados",
-    ],
     tags: ["Python", "FastAPI", "Groq", "LLM Agents", "Function Calling"],
     github: "https://github.com/anaclacp/agentic-support-router",
-    problem: "Sistemas de suporte tradicionais não conseguem rotear e resolver tickets complexos de forma autônoma, criando gargalos no atendimento.",
-    solution: "Sistema multi-agente com prompt chaining e roteamento dinâmico. Orquestração manual com FastAPI, sem dependência de frameworks de agentes.",
-    implemented: [
-      "Roteamento dinâmico por intenção do usuário",
-      "Function calling para ações concretas",
-      "Prompt chaining entre agentes especializados",
-      "API REST completa com FastAPI",
-    ],
   },
   {
-    title: "Pipeline ETL em Larga Escala",
-    short: "ETL serverless com SQS, Lambda e banco vetorial, seguindo Clean Architecture.",
-    highlights: [
-      "Ingestão assíncrona via filas SQS",
-      "Processamento serverless com Lambda",
-      "Carga em banco vetorial para busca semântica",
-    ],
     tags: ["Python", "AWS Lambda", "SQS", "Clean Architecture", "Vector DB"],
-    status: "Corporativo",
-    problem: "Documentos de múltiplas fontes chegavam em formatos diferentes e precisavam ser processados, transformados e indexados de forma confiável e escalável.",
-    solution: "Pipeline ETL completo com ingestão assíncrona via SQS, processamento serverless com AWS Lambda e carga em banco vetorial, seguindo princípios de Clean Architecture.",
-    implemented: [
-      "Ingestão assíncrona via filas SQS",
-      "Processamento serverless com Lambda",
-      "Carga em banco vetorial para busca semântica",
-      "Rastreabilidade de erros e retries automáticos",
-    ],
-    note: "Projeto corporativo. Código não disponível por questões de confidencialidade.",
   },
   {
-    title: "CI/CD com GitHub Actions",
-    short: "Pipelines de build, testes e deploy contínuo com GitHub Actions e Docker.",
-    highlights: [
-      "Build e testes automatizados a cada push",
-      "Deploy contínuo com rollback automático",
-      "Imagens Docker reproduzíveis",
-    ],
     tags: ["GitHub Actions", "Docker", "CI/CD", "DevOps", "Python"],
-    status: "Corporativo",
-    problem: "Deploys manuais e sem cobertura de testes criavam risco de regressão em ambiente de produção.",
-    solution: "Pipelines automatizados de build, testes e deploy contínuo com GitHub Actions, integrados com Docker para ambientes reproduzíveis.",
-    implemented: [
-      "Build e testes automatizados a cada push",
-      "Deploy contínuo com rollback automático",
-      "Imagens Docker reproduzíveis",
-      "Pipelines integrados ao fluxo de PR",
-    ],
-    note: "Projeto corporativo. Código não disponível por questões de confidencialidade.",
   },
 ]
 
@@ -135,7 +38,7 @@ function StatusChip({ status }) {
   )
 }
 
-function ProjectCard({ project, onOpen }) {
+function ProjectCard({ project, onOpen, labels }) {
   return (
     <article className="card-glow rounded-2xl p-6 group flex flex-col">
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -176,7 +79,7 @@ function ProjectCard({ project, onOpen }) {
           onClick={onOpen}
           className="text-sm font-medium text-purple-light hover:text-white transition-colors inline-flex items-center gap-1.5"
         >
-          Ver detalhes
+          {labels.viewDetails}
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
@@ -203,7 +106,7 @@ function ProjectCard({ project, onOpen }) {
   )
 }
 
-function ProjectDetails({ project }) {
+function ProjectDetails({ project, labels }) {
   return (
     <div>
       <div className="flex items-start justify-between gap-3 mb-5 pr-10">
@@ -219,7 +122,7 @@ function ProjectDetails({ project }) {
             <img
               key={i}
               src={src}
-              alt={`${project.title} — apresentação`}
+              alt={`${project.title} · ${labels.presentation}`}
               className="w-full h-auto rounded-lg border border-white/5"
             />
           ))}
@@ -228,17 +131,17 @@ function ProjectDetails({ project }) {
 
       <div className="space-y-5 text-sm md:text-base">
         <section>
-          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1.5">Problema</p>
+          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1.5">{labels.problem}</p>
           <p className="text-gray-300 leading-relaxed">{project.problem}</p>
         </section>
 
         <section>
-          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1.5">Solução</p>
+          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1.5">{labels.solution}</p>
           <p className="text-gray-300 leading-relaxed">{project.solution}</p>
         </section>
 
         <section>
-          <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">O que implementei</p>
+          <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{labels.implemented}</p>
           <ul className="space-y-1.5">
             {project.implemented.map((feat) => (
               <li key={feat} className="flex items-start gap-2 text-gray-300">
@@ -250,7 +153,7 @@ function ProjectDetails({ project }) {
         </section>
 
         <section>
-          <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">Stack</p>
+          <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">{labels.stack}</p>
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <span key={tag} className="text-xs font-mono text-gray-300 bg-dark-700/40 border border-white/5 px-2.5 py-1 rounded-full">
@@ -299,26 +202,36 @@ function ProjectDetails({ project }) {
 }
 
 function Projects() {
-  const [active, setActive] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(null)
+  const { t } = useLanguage()
+
+  const labels = { ...t.projects.labels, viewDetails: t.projects.viewDetails }
+  const projects = t.projects.items.map((item, i) => ({ ...item, ...projectMeta[i] }))
+  const active = activeIndex === null ? null : projects[activeIndex]
 
   return (
     <section id="projetos" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
-          <span className="accent">Projetos</span>
+          <span className="accent">{t.projects.title}</span>
         </h2>
         <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
-          Sistemas com RAG, agentes LLM, automações e pipelines de dados, do problema à produção.
+          {t.projects.subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
-            <ProjectCard key={i} project={project} onOpen={() => setActive(project)} />
+            <ProjectCard
+              key={i}
+              project={project}
+              labels={labels}
+              onOpen={() => setActiveIndex(i)}
+            />
           ))}
         </div>
 
         <p className="text-center text-gray-500 text-xs mt-10">
-          Projetos marcados como corporativos não possuem código público por confidencialidade.
+          {t.projects.confidentialityNote}
         </p>
 
         <div className="text-center mt-6">
@@ -328,7 +241,7 @@ function Projects() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-purple-light hover:text-white transition-colors link-animate text-sm"
           >
-            Ver mais no GitHub
+            {t.projects.seeMore}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -336,8 +249,8 @@ function Projects() {
         </div>
       </div>
 
-      <Modal open={!!active} onClose={() => setActive(null)}>
-        {active && <ProjectDetails project={active} />}
+      <Modal open={!!active} onClose={() => setActiveIndex(null)}>
+        {active && <ProjectDetails project={active} labels={labels} />}
       </Modal>
     </section>
   )
