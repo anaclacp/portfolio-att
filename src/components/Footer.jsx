@@ -1,5 +1,8 @@
+import { useLanguage } from '../i18n/LanguageContext'
+
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
 
   return (
     <footer className="py-8 px-6 border-t border-white/5">
@@ -8,7 +11,7 @@ function Footer() {
           © {currentYear} Ana Clara Pereira
         </p>
         <p className="text-gray-600 text-xs font-mono">
-          Python · TypeScript · IA aplicada
+          {t.footer.tagline}
         </p>
       </div>
     </footer>

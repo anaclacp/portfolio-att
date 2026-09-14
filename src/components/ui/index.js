@@ -1,4 +1,5 @@
 export { default as Background } from './Background'
 export { default as BlurText } from './BlurText'
 export { default as DownloadButton } from './DownloadButton'
+export { default as LanguageToggle } from './LanguageToggle'
 export { default as SkillTag } from './SkillTag'

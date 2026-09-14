@@ -1,13 +1,16 @@
 import BlurText from './ui/BlurText'
+import { useLanguage } from '../i18n/LanguageContext'
 
 function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="max-w-4xl text-center">
         <div className="mb-6 slide-up" style={{ animationDelay: '150ms' }}>
           <span className="inline-flex items-center gap-2 text-xs font-mono text-gray-300 bg-dark-700/60 border border-purple-light/20 px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-pink-vibrant"></span>
-            Dev Full Stack Pleno @ Citel
+            {t.hero.badge}
           </span>
         </div>
 
@@ -17,26 +20,26 @@ function Hero() {
 
         <div className="mb-8">
           <BlurText
-            text="Desenvolvedora Full Stack Pleno focada em IA aplicada"
+            text={t.hero.role}
             delay={500}
             className="text-xl md:text-2xl font-body text-purple-light"
           />
         </div>
 
         <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-4 slide-up" style={{ animationDelay: '750ms' }}>
-          Crio sistemas com LLMs, RAG, agentes, APIs e automações para transformar problemas complexos em soluções reais.
+          {t.hero.description}
         </p>
 
         <p className="text-gray-500 text-sm max-w-xl mx-auto mb-10 slide-up" style={{ animationDelay: '850ms' }}>
-          Disponível para projetos freelancer envolvendo IA, automações, APIs e sistemas web.
+          {t.hero.availability}
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center slide-up" style={{ animationDelay: '1000ms' }}>
           <a href="#projetos" className="btn-gradient px-7 py-3 rounded-full font-body text-sm font-medium">
-            <span>Ver projetos</span>
+            <span>{t.hero.ctaProjects}</span>
           </a>
           <a href="#contato" className="btn-ghost px-7 py-3 rounded-full font-body text-sm font-medium">
-            Falar comigo
+            {t.hero.ctaContact}
           </a>
           <a
             href="https://github.com/anaclacp"

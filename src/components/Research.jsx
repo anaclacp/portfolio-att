@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import Modal from './ui/Modal'
+import { useLanguage } from '../i18n/LanguageContext'
 
-const items = [
+/* Dados independentes de idioma, na mesma ordem de t.research.items */
+const itemsMeta = [
   {
     year: "2026",
-    type: "Docência / Curso",
-    title: "Curso de n8n na UNAERP",
-    description: "Curso prático sobre automação de workflows e integrações com IA, ministrado para alunos da universidade. Material aberto no GitHub.",
-    institution: "Universidade de Ribeirão Preto",
     images: [
       "/images/curso-n8n-unaerp-1.jpg",
       "/images/curso-n8n-unaerp-2.jpg",
@@ -17,18 +15,10 @@ const items = [
   },
   {
     year: "2025",
-    type: "Iniciação Científica",
-    title: "Impacto das variáveis climáticas na dinâmica dos casos de dengue",
-    description: "Sistema de ML para analisar fatores climáticos e anomalias atmosféricas relacionados a casos de dengue em Ribeirão Preto, com foco em eventos extremos.",
-    institution: "Universidade de Ribeirão Preto",
     images: ["/images/iniciacao-cientifica.jpg"],
   },
   {
     year: "2024",
-    type: "Iniciação Científica",
-    title: "Coleta automatizada de dados meteorológicos para estudos preditivos de arboviroses",
-    description: "Base de dados com R, Python e MySQL para alimentar modelos preditivos de surtos de dengue, zika e chikungunya.",
-    institution: "Universidade de Ribeirão Preto",
     images: ["/images/iniciacao-cientifica-2.jpg"],
     linkedin: "https://www.linkedin.com/posts/anaclacp_neste-ano-participei-do-25%C2%BA-conic-da-universidade-activity-7263220922872963073-YAai?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
@@ -51,6 +41,8 @@ function LinkedInIcon() {
 }
 
 function Thumbnail({ images, alt, onOpen }) {
+  const { t } = useLanguage()
+
   if (!images || images.length === 0) return null
   const [first, second] = images
   const hasSecond = Boolean(second)
@@ -59,7 +51,7 @@ function Thumbnail({ images, alt, onOpen }) {
     <button
       onClick={onOpen}
       className="group relative shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border border-white/10 hover:border-purple-light/40 transition-colors"
-      aria-label={`Ver imagens de ${alt}`}
+      aria-label={`${t.research.viewImages} ${alt}`}
     >
       {hasSecond ? (
         <div className="grid grid-cols-2 w-full h-full gap-px bg-dark-900">
@@ -167,16 +159,20 @@ function Lightbox({ item }) {
 }
 
 function Research() {
-  const [active, setActive] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(null)
+  const { t } = useLanguage()
+
+  const items = t.research.items.map((item, i) => ({ ...item, ...itemsMeta[i] }))
+  const active = activeIndex === null ? null : items[activeIndex]
 
   return (
     <section id="academico" className="py-32 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
-          <span className="accent">Acadêmico</span>
+          <span className="accent">{t.research.title}</span>
         </h2>
         <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
-          Iniciações científicas, docência e contribuições acadêmicas.
+          {t.research.subtitle}
         </p>
 
         <ol className="space-y-8">
@@ -185,13 +181,13 @@ function Research() {
               key={i}
               item={item}
               isLast={i === items.length - 1}
-              onOpenImages={setActive}
+              onOpenImages={() => setActiveIndex(i)}
             />
           ))}
         </ol>
       </div>
 
-      <Modal open={!!active} onClose={() => setActive(null)}>
+      <Modal open={!!active} onClose={() => setActiveIndex(null)}>
         <Lightbox item={active} />
       </Modal>
     </section>

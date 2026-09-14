@@ -1,4 +1,8 @@
+import { useLanguage } from '../i18n/LanguageContext'
+
 function Freelance() {
+  const { t } = useLanguage()
+
   return (
     <section id="freelance" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
@@ -7,15 +11,14 @@ function Freelance() {
             <div className="flex items-center gap-2 justify-center md:justify-start mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-pink-vibrant"></span>
               <span className="text-xs font-mono text-pink-vibrant uppercase tracking-[0.2em]">
-                Disponível
+                {t.freelance.badge}
               </span>
             </div>
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-white mb-3 tracking-tight">
-              Disponível para projetos freelancer
+              {t.freelance.title}
             </h2>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-              Posso ajudar com sistemas web, APIs, automações, integrações com IA, RAG, agentes,
-              melhorias de performance em Python e deploy de aplicações.
+              {t.freelance.description}
             </p>
           </div>
           <div className="shrink-0">
@@ -23,7 +26,7 @@ function Freelance() {
               href="#contato"
               className="btn-gradient inline-flex items-center gap-2 px-7 py-3 rounded-full font-body text-sm font-medium"
             >
-              <span>Vamos conversar</span>
+              <span>{t.freelance.cta}</span>
               <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

@@ -1,3 +1,5 @@
+import { useLanguage } from '../i18n/LanguageContext'
+
 const contactLinks = [
   {
     name: "Email",
@@ -37,11 +39,11 @@ const contactLinks = [
       </svg>
     ),
     href: "https://arccode.dev/~/xFTUgFINYTYiCIFfX6F5Ctk9JjG3",
-    label: "Perfil ArcCode",
+    labelKey: "arccodeLabel",
   }
 ]
 
-function ContactCard({ link }) {
+function ContactCard({ link, label }) {
   return (
     <a
       href={link.href}
@@ -55,7 +57,7 @@ function ContactCard({ link }) {
       <div className="text-left min-w-0">
         <span className="text-gray-500 text-xs uppercase tracking-wider">{link.name}</span>
         <p className="text-white text-sm font-medium group-hover:text-purple-light transition-colors truncate">
-          {link.label}
+          {label}
         </p>
       </div>
     </a>
@@ -63,19 +65,25 @@ function ContactCard({ link }) {
 }
 
 function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contato" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="section-title text-3xl md:text-4xl mb-4">
-          Vamos <span className="accent">conversar</span>
+          {t.contact.titleLead} <span className="accent">{t.contact.titleAccent}</span>
         </h2>
         <p className="text-gray-400 mb-16 max-w-xl mx-auto text-sm md:text-base">
-          Aberta a oportunidades, colaborações e projetos freelance envolvendo IA, automações e desenvolvimento web.
+          {t.contact.subtitle}
         </p>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {contactLinks.map((link, i) => (
-            <ContactCard key={i} link={link} />
+            <ContactCard
+              key={i}
+              link={link}
+              label={link.labelKey ? t.contact[link.labelKey] : link.label}
+            />
           ))}
         </div>
       </div>

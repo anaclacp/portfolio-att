@@ -1,29 +1,20 @@
-const events = [
+import { useLanguage } from '../i18n/LanguageContext'
+
+/* Dados independentes de idioma, na mesma ordem de t.events.items */
+const eventsMeta = [
   {
-    title: "Oracle Dev Tour São Paulo",
-    description: "Evento focado em IA, dados e automação, com discussões sobre IA generativa, RAG, agentes e bancos de dados autônomos.",
     date: "2025",
-    location: "São Paulo, SP",
-    type: "Conferência",
     image: "/images/oracle-dev-tour.jpg",
     linkedin: "https://www.linkedin.com/posts/anaclacp_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-mO92?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
-    title: "Palestra: Introdução ao n8n",
-    description: "Palestra interna sobre n8n e automação de workflows, com foco em curadoria de conteúdo técnico e aplicação prática para a equipe.",
     date: "2025",
-    location: "Citel · Ribeirão Preto, SP",
-    type: "Palestra",
     image: "/images/palestra-n8n.jpg",
     linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-automaaexaeto-citel-activity-7296293143128244226-6FPq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
   },
   {
-    title: "Evento CCM: IA em Ação",
-    description: "Evento sobre aplicações práticas de IA, tendências do mercado e casos de uso em produtos reais.",
     date: "2025",
-    location: "Dabi Business · Ribeirão Preto, SP",
-    type: "Workshop",
-    image: "/images/ccm-evento.jpg"
+    image: "/images/ccm-evento.jpg",
   },
 ]
 
@@ -81,14 +72,18 @@ function EventCard({ event }) {
 }
 
 function Events() {
+  const { t } = useLanguage()
+
+  const events = t.events.items.map((item, i) => ({ ...item, ...eventsMeta[i] }))
+
   return (
     <section id="eventos" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
-          <span className="accent">Eventos</span>
+          <span className="accent">{t.events.title}</span>
         </h2>
         <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
-          Conferências, workshops e encontros que participei.
+          {t.events.subtitle}
         </p>
 
         <div className="grid md:grid-cols-3 gap-5 mb-10">
@@ -107,7 +102,7 @@ function Events() {
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
-            Mais eventos no LinkedIn
+            {t.events.moreOnLinkedin}
           </a>
         </div>
       </div>
