@@ -72,7 +72,7 @@ function Thumbnail({ images, alt, onOpen }) {
 
 function TimelineItem({ item, isLast, onOpenImages }) {
   return (
-    <li className="relative pl-8 md:pl-10">
+    <li className="relative pl-8 md:pl-10" data-reveal>
       {!isLast && (
         <span className="absolute left-[7px] md:left-[9px] top-3 bottom-[-2rem] w-px bg-white/8" aria-hidden />
       )}
@@ -168,10 +168,10 @@ function Research() {
   return (
     <section id="academico" className="py-32 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
+        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center" data-reveal>
           <span className="accent">{t.research.title}</span>
         </h2>
-        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.research.subtitle}
         </p>
 
