@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const contactLinks = [
@@ -32,34 +33,63 @@ const contactLinks = [
     label: "@anaclacp",
   },
   {
-    name: "ArcCode",
+    // Único destino interno da lista: em vez de um perfil externo, leva para a
+    // página de estudos. Usa o mesmo ícone de livro do CTA da home, para os
+    // dois caminhos serem reconhecidos como o mesmo lugar.
+    name: "Learning Log",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+        />
       </svg>
     ),
-    href: "https://arccode.dev/~/xFTUgFINYTYiCIFfX6F5Ctk9JjG3",
-    labelKey: "arccodeLabel",
+    to: "/learning",
+    labelKey: "learningLabel",
   }
 ]
 
 function ContactCard({ link, label }) {
-  return (
-    <a
-      href={link.href}
-      target={link.href.startsWith('mailto') ? '_self' : '_blank'}
-      rel="noopener noreferrer"
-      className="card-glow rounded-xl p-5 flex items-center gap-4 group"
-    >
+  const conteudo = (
+    <>
       <div className="w-11 h-11 rounded-lg bg-purple-light/10 border border-purple-light/20 text-purple-light flex items-center justify-center shrink-0 group-hover:bg-purple-light/15 transition-colors">
         {link.icon}
       </div>
-      <div className="text-left min-w-0">
+      <div className="text-left min-w-0 flex-1">
         <span className="text-gray-500 text-xs uppercase tracking-wider">{link.name}</span>
         <p className="text-white text-sm font-medium group-hover:text-purple-light transition-colors truncate">
           {label}
         </p>
       </div>
+      {link.to && (
+        <span className="text-purple-light shrink-0 transition-transform group-hover:translate-x-1" aria-hidden>
+          →
+        </span>
+      )}
+    </>
+  )
+
+  const classe = 'card-glow rounded-xl p-5 flex items-center gap-4 group'
+
+  // Destino interno vira <Link>: usar <a href> recarregaria a SPA inteira.
+  if (link.to) {
+    return (
+      <Link to={link.to} className={classe}>
+        {conteudo}
+      </Link>
+    )
+  }
+
+  return (
+    <a
+      href={link.href}
+      target={link.href.startsWith('mailto') ? '_self' : '_blank'}
+      rel="noopener noreferrer"
+      className={classe}
+    >
+      {conteudo}
     </a>
   )
 }
@@ -70,20 +100,21 @@ function Contact() {
   return (
     <section id="contato" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="section-title text-3xl md:text-4xl mb-4">
+        <h2 className="section-title text-3xl md:text-4xl mb-4" data-reveal>
           {t.contact.titleLead} <span className="accent">{t.contact.titleAccent}</span>
         </h2>
-        <p className="text-gray-400 mb-16 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 mb-16 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.contact.subtitle}
         </p>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {contactLinks.map((link, i) => (
-            <ContactCard
-              key={i}
-              link={link}
-              label={link.labelKey ? t.contact[link.labelKey] : link.label}
-            />
+            <div key={i} data-reveal style={{ '--reveal-delay': `${i * 70}ms` }}>
+              <ContactCard
+                link={link}
+                label={link.labelKey ? t.contact[link.labelKey] : link.label}
+              />
+            </div>
           ))}
         </div>
       </div>

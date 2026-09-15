@@ -1,0 +1,197 @@
+/* Learning Log */
+
+/* Barra de progresso */
+.progress-track {
+  position: relative;
+  height: 6px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, var(--primary-soft), var(--primary));
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Lombada sutil na capa do livro, para a estante não virar só um grid de fotos */
+.book-spine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.08) 60%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Prateleira sob a grade de livros */
+.shelf-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  box-shadow: 0 6px 18px -10px rgba(124, 108, 242, 0.5);
+}
+
+/* ---------------------------------------------------------------------------
+   CTA do Learning Log na home.
+
+   Os demais cards da pagina usam a superficie neutra. Este nao: ganha um
+   gradiente lavanda proprio, borda tingida e um brilho externo, para ser o
+   unico bloco da home com esse tratamento e por isso ler como convite, nao
+   como mais um card. Continua dentro da paleta, so que no topo dela.
+   --------------------------------------------------------------------------- */
+.learning-cta {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  border-radius: 18px;
+  padding: 20px 24px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124, 108, 242, 0.16),
+      rgba(216, 167, 177, 0.07) 55%,
+      rgba(21, 21, 31, 0) 100%
+    ),
+    var(--surface);
+  border: 1px solid rgba(165, 148, 249, 0.3);
+  box-shadow: 0 14px 34px -20px rgba(124, 108, 242, 0.65);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.learning-cta:hover {
+  border-color: rgba(165, 148, 249, 0.65);
+  box-shadow: 0 18px 40px -18px rgba(124, 108, 242, 0.85);
+  transform: translateY(-3px);
+}
+
+/* Varredura de luz. Passa uma vez a cada ciclo e some: o restante do tempo a
+   faixa fica parada fora do card, entao nao ha brilho piscando na pagina. */
+.learning-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  animation: cta-sheen 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-sheen {
+  0%, 58%   { transform: translateX(-120%); }
+  82%, 100% { transform: translateX(120%); }
+}
+
+/* Conteudo acima da varredura. */
+.learning-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Seta num disco lavanda: vira alvo de clique visivel, nao um simbolo solto. */
+.learning-cta .cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* line-height 1 e box-sizing explicitos: a borda de 1px entra na medida,
+     senao o disco fica 36px e o conteudo desalinha do centro geometrico. */
+  line-height: 1;
+  box-sizing: border-box;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(165, 148, 249, 0.14);
+  border: 1px solid rgba(165, 148, 249, 0.3);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.learning-cta:hover .cta-arrow {
+  transform: translateX(4px);
+  background: var(--primary-soft);
+  border-color: transparent;
+  /* A seta e lavanda; sobre o disco lavanda preenchido ela sumiria. */
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learning-cta::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Utilitário de truncamento por linhas (não vem no Tailwind 3 sem plugin) */
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-1 { -webkit-line-clamp: 1; }
+.line-clamp-2 { -webkit-line-clamp: 2; }
+.line-clamp-3 { -webkit-line-clamp: 3; }
+
+/* Formulário do painel admin */
+.admin-field {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.admin-field:focus {
+  outline: none;
+  border-color: rgba(165, 148, 249, 0.55);
+  background: var(--surface);
+}
+
+.admin-field::placeholder {
+  color: #5b5570;
+}
+
+/* Select precisa de seta própria: appearance:none remove a nativa */
+select.admin-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23A594F9' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  padding-right: 32px;
+}
+
+.admin-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}

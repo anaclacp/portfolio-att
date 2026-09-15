@@ -35,16 +35,21 @@ function Services() {
   return (
     <section id="servicos" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
+        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center" data-reveal>
           {t.services.titleLead} <span className="accent">{t.services.titleAccent}</span>
         </h2>
-        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.services.subtitle}
         </p>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {services.map((s) => (
-            <div key={s.title} className="card-soft rounded-xl p-6">
+          {services.map((s, i) => (
+            <div
+              key={s.title}
+              className="card-soft rounded-xl p-6"
+              data-reveal
+              style={{ '--reveal-delay': `${i * 80}ms` }}
+            >
               <div className="w-9 h-9 rounded-lg bg-purple-light/10 border border-purple-light/20 flex items-center justify-center text-purple-light mb-4">
                 {s.icon}
               </div>

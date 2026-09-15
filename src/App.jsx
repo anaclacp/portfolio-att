@@ -1,31 +1,25 @@
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Projects from './components/Projects'
-import TechStack from './components/TechStack'
-import Research from './components/Research'
-import Events from './components/Events'
-import Freelance from './components/Freelance'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Background from './components/ui/Background'
+import ScrollToTop from './components/ui/ScrollToTop'
+import useScrollReveal from './hooks/useScrollReveal'
+import Home from './pages/Home'
+import Learning from './pages/Learning'
+import AdminLearning from './pages/AdminLearning'
 
 function App() {
+  useScrollReveal()
+
   return (
     <>
       <Background />
-      <Navigation />
-      <Hero />
-      <About />
-      <Services />
-      <Projects />
-      <TechStack />
-      <Research />
-      <Events />
-      <Freelance />
-      <Contact />
-      <Footer />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/learning" element={<Learning />} />
+        <Route path="/admin/learning" element={<AdminLearning />} />
+        {/* Qualquer outra rota volta para a home em vez de tela branca. */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </>
   )
 }

@@ -6,7 +6,7 @@ function Freelance() {
   return (
     <section id="freelance" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <div className="card-soft rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row md:items-center gap-8">
+        <div className="card-soft rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row md:items-center gap-8" data-reveal>
           <div className="flex-1">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-pink-vibrant"></span>

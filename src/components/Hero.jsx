@@ -26,20 +26,13 @@ function Hero() {
           />
         </div>
 
-        <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-4 slide-up" style={{ animationDelay: '750ms' }}>
+        <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-10 slide-up" style={{ animationDelay: '750ms' }}>
           {t.hero.description}
-        </p>
-
-        <p className="text-gray-500 text-sm max-w-xl mx-auto mb-10 slide-up" style={{ animationDelay: '850ms' }}>
-          {t.hero.availability}
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center slide-up" style={{ animationDelay: '1000ms' }}>
           <a href="#projetos" className="btn-gradient px-7 py-3 rounded-full font-body text-sm font-medium">
             <span>{t.hero.ctaProjects}</span>
-          </a>
-          <a href="#contato" className="btn-ghost px-7 py-3 rounded-full font-body text-sm font-medium">
-            {t.hero.ctaContact}
           </a>
           <a
             href="https://github.com/anaclacp"

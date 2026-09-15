@@ -29,16 +29,21 @@ function TechStack() {
   return (
     <section id="stack" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-5xl mx-auto">
-        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
+        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center" data-reveal>
           {t.stack.titleLead} <span className="accent">{t.stack.titleAccent}</span>
         </h2>
-        <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.stack.subtitle}
         </p>
 
         <div className="space-y-8">
-          {stackGroups.map((group) => (
-            <div key={group.key} className="grid md:grid-cols-[180px_1fr] gap-4 md:gap-8 items-start">
+          {stackGroups.map((group, i) => (
+            <div
+              key={group.key}
+              className="grid md:grid-cols-[180px_1fr] gap-4 md:gap-8 items-start"
+              data-reveal
+              style={{ '--reveal-delay': `${i * 70}ms` }}
+            >
               <div className="flex items-center gap-3 md:justify-end md:pt-1">
                 <span className="hidden md:block h-px flex-1 bg-gradient-to-l from-purple-light/30 to-transparent" />
                 <span className="font-display text-xs font-medium text-purple-light uppercase tracking-[0.2em] whitespace-nowrap">

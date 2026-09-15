@@ -5,9 +5,10 @@ node_modules/
 dist/
 
 # Environment variables
-.env
-.env.local
-.env.*.local
+# Ignora qualquer .env (.env.production, .env.neon, .env.bak...) e libera so o
+# exemplo, que nao tem valor real. A lista antiga deixava passar .env.<nome>.
+.env*
+!.env.example
 
 # IDE
 .vscode/

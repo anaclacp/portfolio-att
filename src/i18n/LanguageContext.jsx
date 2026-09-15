@@ -25,10 +25,10 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     const t = translations[lang]
     document.documentElement.lang = t.meta.htmlLang
-    document.title = t.meta.title
 
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) metaDescription.setAttribute('content', t.meta.description)
+    // title e meta description ficam com a pagina (usePageMeta). Se fossem
+    // escritos aqui, o efeito do provider rodaria DEPOIS do efeito do filho na
+    // troca de idioma e /learning voltaria a exibir o titulo da home.
 
     try {
       window.localStorage.setItem(STORAGE_KEY, lang)

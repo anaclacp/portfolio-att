@@ -79,16 +79,18 @@ function Events() {
   return (
     <section id="eventos" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
+        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center" data-reveal>
           <span className="accent">{t.events.title}</span>
         </h2>
-        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.events.subtitle}
         </p>
 
         <div className="grid md:grid-cols-3 gap-5 mb-10">
           {events.map((event, i) => (
-            <EventCard key={i} event={event} />
+            <div key={i} data-reveal style={{ '--reveal-delay': `${i * 80}ms` }}>
+              <EventCard event={event} />
+            </div>
           ))}
         </div>
 

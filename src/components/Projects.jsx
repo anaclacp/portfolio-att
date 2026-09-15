@@ -212,25 +212,26 @@ function Projects() {
   return (
     <section id="projetos" className="py-32 px-6 bg-dark-800/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center">
+        <h2 className="section-title text-3xl md:text-4xl mb-4 text-center" data-reveal>
           <span className="accent">{t.projects.title}</span>
         </h2>
-        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base">
+        <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto text-sm md:text-base" data-reveal style={{ '--reveal-delay': '80ms' }}>
           {t.projects.subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
-            <ProjectCard
-              key={i}
-              project={project}
-              labels={labels}
-              onOpen={() => setActiveIndex(i)}
-            />
+            <div key={i} data-reveal style={{ '--reveal-delay': `${(i % 2) * 90}ms` }}>
+              <ProjectCard
+                project={project}
+                labels={labels}
+                onOpen={() => setActiveIndex(i)}
+              />
+            </div>
           ))}
         </div>
 
-        <p className="text-center text-gray-500 text-xs mt-10">
+        <p className="text-center text-gray-500 text-xs mt-10" data-reveal>
           {t.projects.confidentialityNote}
         </p>
 
