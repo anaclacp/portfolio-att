@@ -11,7 +11,7 @@ const itemsMeta = [
       "/images/curso-n8n-unaerp-2.jpg",
     ],
     github: "https://github.com/anaclacp/curso-n8n-unaerp-2026",
-    linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-ia-automaaexaetodeprocessos-ugcPost-7455258430782574592-aJDm?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-ia-automaaexaetodeprocessos-ugcPost-7455258430782574592-aJDm/",
   },
   {
     year: "2025",
@@ -20,7 +20,7 @@ const itemsMeta = [
   {
     year: "2024",
     images: ["/images/iniciacao-cientifica-2.jpg"],
-    linkedin: "https://www.linkedin.com/posts/anaclacp_neste-ano-participei-do-25%C2%BA-conic-da-universidade-activity-7263220922872963073-YAai?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_neste-ano-participei-do-25%C2%BA-conic-da-universidade-activity-7263220922872963073-YAai/",
   },
 ]
 

@@ -86,7 +86,7 @@ O site abre em `http://localhost:5173`.
 portfolio-att/
 ├── public/
 │   ├── images/            # imagens usadas no site
-│   └── cv.pdf
+│   └── cv-pt.pdf, cv-en.pdf  # gerados de cv/ com npm run cv:build
 ├── src/
 │   ├── components/
 │   │   ├── ui/            # reutilizáveis (Modal, LanguageToggle, BlurText...)

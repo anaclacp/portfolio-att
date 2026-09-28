@@ -15,6 +15,7 @@ export const translations = {
       academic: 'Acadêmico',
       contact: 'Contato',
       downloadCv: 'Baixar CV',
+      downloadCvHint: 'CV em português. Para a versão em inglês, troque o idioma para EN.',
       switchTo: 'Mudar idioma para',
     },
 
@@ -463,6 +464,7 @@ export const translations = {
       academic: 'Academic',
       contact: 'Contact',
       downloadCv: 'Download CV',
+      downloadCvHint: 'Resume in English. For the Portuguese version, switch the language to PT.',
       switchTo: 'Switch language to',
     },
 
