@@ -1,7 +1,8 @@
 import { useLanguage } from '../../i18n/LanguageContext'
 
-function DownloadButton({ href = "#", onClick }) {
-  const { t } = useLanguage()
+/** O CV acompanha o idioma do site: public/cv-pt.pdf ou public/cv-en.pdf. */
+function DownloadButton({ onClick }) {
+  const { lang, t } = useLanguage()
 
   const handleClick = (e) => {
     if (onClick) {
@@ -12,10 +13,11 @@ function DownloadButton({ href = "#", onClick }) {
 
   return (
     <a
-      href={href}
+      href={`/cv-${lang}.pdf`}
       className="download-btn"
       onClick={handleClick}
-      download="Ana_Clara_Pereira_CV.pdf"
+      download={`Ana_Clara_Pereira_CV_${lang.toUpperCase()}.pdf`}
+      title={t.nav.downloadCvHint}
       target="_blank"
       rel="noopener noreferrer"
     >

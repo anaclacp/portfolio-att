@@ -45,7 +45,7 @@ function Navigation() {
             </a>
           ))}
           <LanguageToggle />
-          <DownloadButton href="/cv.pdf" />
+          <DownloadButton />
         </div>
       </div>
     </nav>

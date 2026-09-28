@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ana Clara Pereira - Resume</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap">
+  <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+  <header>
+    <h1>Ana Clara Pereira</h1>
+    <span class="role">Software &amp; AI Developer</span>
+  </header>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>
+        <b>Phone:</b> +55 (16) 99250-2742<br>
+        <b>Email:</b> anaclaracarnavalli@gmail.com<br>
+        <b>Location:</b> Ribeirão Preto, SP, Brazil
+      </div>
+      <div>
+        <b>Portfolio:</b> <a href="https://portfolio-ana-clara.vercel.app">portfolio-ana-clara.vercel.app</a><br>
+        <b>LinkedIn:</b> <a href="https://linkedin.com/in/anaclacp">linkedin.com/in/anaclacp</a><br>
+        <b>GitHub:</b> <a href="https://github.com/anaclacp">github.com/anaclacp</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Profile</h2>
+    <p>
+      Mid-level Full Stack Developer focused on <b>Agentic AI and LLMs in production</b>: agent orchestration,
+      <i>tool/function calling</i>, memory and planning, hybrid RAG and deterministic <i>guardrails</i> for action control.
+      End-to-end experience with Python (FastAPI, Pydantic), Clean Architecture and cloud (AWS, Azure OpenAI), with a focus on
+      reliability, agent behavior evaluation and failure mitigation. Currently enrolled in the <b>Dev Eficiente</b>
+      specialization program and studying <b>Go</b> for high-performance backends.
+    </p>
+  </section>
+
+  <section class="splittable">
+    <h2>Professional<br>Experience</h2>
+    <div>
+      <div class="job">
+        <h3>Mid-level Full Stack Developer | Jan 2026 - Present</h3>
+        <div class="org">Citel Software</div>
+        <ul>
+          <li>Architected and built an internal <b>multi-tenant</b> AI platform (schema-per-tenant, around 400 distributor clients) that lets users query the ERP in <b>natural language</b> through an LLM.</li>
+          <li>Implemented <b>guardrails and safety mechanisms</b>: deterministic validators for generated SQL, an explicit table <i>whitelist</i>, per-module access control and input/output validation before any action runs.</li>
+          <li>Dynamic injection of a data dictionary into the agent context from metadata, reducing schema hallucination.</li>
+          <li>Built an internal LLM-assisted <i>code review</i> tool integrated into the pre-commit workflow.</li>
+          <li>Built a <b>hybrid RAG</b> (dense, sparse BM25 and ColBERT) on <b>Qdrant</b> over roughly 25k chunks of ERP technical documentation, with reranking and retrieval evaluation.</li>
+          <li>Cut the RAG ingestion pipeline from about 60 minutes to 4 to 5 minutes through asynchronous parallelization.</li>
+          <li>Full stack development with <b>Python, Node.js, TypeScript and Next.js</b>, including a superadmin panel for tenant management.</li>
+          <li>Infrastructure and environment management with <b>Docker</b> (building and maintaining containers), <b>CI/CD</b> pipelines and deploy automation.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Junior Software Developer (AI) | Jun 2025 - Jan 2026</h3>
+        <div class="org">D3 Works</div>
+        <ul>
+          <li>Developed <b>autonomous agents</b> with <i>prompt chaining</i> and <i>routing</i>, using <b>native function calling</b> (OpenAI SDK and Groq) and <b>Pydantic</b> for structured output validation, on an in-house architecture without heavy frameworks.</li>
+          <li>WhatsApp sales agent in production (FastAPI, MongoDB and n8n), with <i>human-in-the-loop</i>, scheduled re-engagement and proactive rescheduling based on dates extracted from natural language.</li>
+          <li><b>Agent behavior validation</b>: analyzed 106 real conversation sessions, identified 4 critical failure patterns and iterated on prompts and decision policies based on the findings.</li>
+          <li><b>Multi-agent orchestration with CrewAI and Azure OpenAI</b> for a diagnostic agent system, plus specialized agents for the education segment, gathering requirements directly with clients.</li>
+          <li><b>RAG</b> and ETL pipelines over documents and visual PDFs, with <i>embeddings</i>, chunking and answer quality evaluation.</li>
+          <li>Python digital products on the <b>AWS</b> ecosystem (Serverless Framework, Lambda, SQS, S3), applying <b>Clean Code, Clean Architecture and Design Patterns</b>.</li>
+          <li><b>Automated testing</b> culture with Pytest (unit and E2E), keeping deliveries stable.</li>
+          <li>Infrastructure and environments with <b>Docker</b>, Uvicorn and server access via SSH; PHP APIs and <i>triggers</i> and <b>MongoDB</b> data handling.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Junior Full Stack Developer | Jun 2024 - Jun 2025</h3>
+        <div class="org">Citel Software</div>
+        <ul>
+          <li>Application development with <b>Python, Node.js, TypeScript and Next.js</b>.</li>
+          <li>Implemented an AI solution with <b>RAG</b> to support ERP users, improving technical support efficiency.</li>
+          <li>Mentored an intern on technical tasks and development best practices.</li>
+          <li>Hands-on <b>AWS</b> training (EC2, S3, Lambda), applied to REST API integrations and deploy automation with <b>GitHub Actions</b>.</li>
+          <li>Process automation with <b>n8n</b>, including an internal tech talk on use cases and integrations with the company APIs.</li>
+          <li>Agile ceremonies (<b>Scrum</b>), <i>code reviews</i> and management of the GitHub versioning workflow.</li>
+          <li>Represented the company at industry events: <b>Oracle Dev Tour São Paulo</b> (Mar 2025) and <b>Oracle IA em Ação</b> (Feb 2025).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="job">
+      <h3>Unaerp, University of Ribeirão Preto (Aug 2021 - Aug 2026)</h3>
+      <div class="org">B.Sc. in Computer Engineering</div>
+      <ul>
+        <li>Capstone project Chef AI (highest grade): cross-platform mobile app that identifies food items on receipts and in pantry photos with the Gemini multimodal model, keeps a digital inventory the user can review and suggests recipes through a conversational assistant that respects registered restrictions and preferences. Custom backend in FastAPI and PostgreSQL with Clean Architecture, model orchestration, structured response validation and dynamic context enrichment; front end in React Native/Expo with TypeScript.</li>
+        <li>Undergraduate research (25th and 26th CONIC): <i>machine learning</i> to forecast seasonal disease outbreaks from weather data and DataSUS, the Brazilian public health database (Random Forest, Gradient Boosting).</li>
+        <li>R, Python and MySQL for data modeling; PyTorch and Scikit-learn.</li>
+        <li>App development in Java and Flutter; electronic circuits (Arduino, ESP32, Servo).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ongoing<br>specialization</h2>
+    <div class="job">
+      <h3>Dev Eficiente</h3>
+      <div class="org"><a href="https://deveficiente.com">deveficiente.com</a></div>
+      <ul>
+        <li>Software development specialization with an applied AI track: agents, RAG, guardrails, prompt engineering and LLM integration in real systems.</li>
+        <li>Studying Go for backend development, with a personal financial API project (go-ledger-api).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical<br>skills</h2>
+    <div>
+      <div class="skill">
+        <h3>AI and LLMs</h3>
+        <p>Agent architectures (multi-agent, tool/function calling, memory, planning, reflection), RAG (dense, sparse BM25, ColBERT, reranking), embeddings, prompt engineering, guardrails and input/output validation, human-in-the-loop, agent behavior evaluation and testing, prompt injection mitigation, OpenAI SDK, Google Gemini, Groq, CrewAI, Azure OpenAI</p>
+      </div>
+      <div class="skill">
+        <h3>Languages</h3>
+        <p>Python, TypeScript, JavaScript, Java, SQL; Go (actively studying)</p>
+      </div>
+      <div class="skill">
+        <h3>Frameworks and tools</h3>
+        <p>FastAPI, Pydantic, Flask, Node.js, Express, Next.js, React Native, n8n, Serverless Framework, Pytest</p>
+      </div>
+      <div class="skill">
+        <h3>Databases</h3>
+        <p>PostgreSQL, MySQL, MongoDB, Qdrant (vector)</p>
+      </div>
+      <div class="skill">
+        <h3>Cloud and DevOps</h3>
+        <p>AWS (Lambda, SQS, S3, EC2, Serverless Framework), Azure OpenAI, OCI, Docker, Git, GitHub Actions CI/CD, Linux/SSH</p>
+      </div>
+      <div class="skill">
+        <h3>Software engineering</h3>
+        <p>Clean Code, Clean Architecture, Design Patterns, unit and E2E testing, code review, Scrum</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Teaching and<br>community</h2>
+    <ul>
+      <li>Instructor of the <b>Introduction to n8n</b> short course at UNAERP (3 days): HTTP fundamentals, multi-step workflows and AI agent patterns with LLMs.</li>
+      <li>Internal tech talk on automation and API integration with n8n.</li>
+      <li>Technical documentation and product roadmaps for engineering teams.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <p class="inline"><b>English:</b> Advanced (C1) &nbsp;|&nbsp; <b>Portuguese:</b> Native</p>
+  </section>
+
+  <section>
+    <h2>Soft skills</h2>
+    <p>Clear and effective communication, translating technical risk into business impact, working in cross-functional teams, proactivity and autonomy, continuous learning, problem solving, technical leadership.</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,129 @@
+@page {
+  size: A4;
+  margin: 14mm 13mm 14mm 13mm;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', 'Segoe UI', Arial, sans-serif;
+  font-size: 8.2pt;
+  line-height: 1.4;
+  color: #222;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 1.5px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12pt;
+}
+
+header h1 {
+  font-size: 20pt;
+  font-weight: 900;
+  letter-spacing: -0.2pt;
+}
+
+header .role {
+  font-size: 10.5pt;
+  color: #444;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  gap: 0 4mm;
+  padding: 8pt 0;
+  border-top: 0.6pt solid #d4d4d4;
+  break-inside: avoid;
+}
+
+section.splittable {
+  break-inside: auto;
+}
+
+section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+section > h2 {
+  font-size: 6.8pt;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3pt;
+  line-height: 1.35;
+  padding-top: 1pt;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 6mm;
+}
+
+.contact b,
+.inline b {
+  font-weight: 700;
+}
+
+.job + .job {
+  margin-top: 8pt;
+}
+
+.job,
+.skill {
+  break-inside: avoid;
+}
+
+.job h3 {
+  font-size: 8.6pt;
+  font-weight: 700;
+}
+
+.job .org {
+  color: #666;
+  margin-bottom: 2pt;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding-left: 10pt;
+  margin-top: 1.5pt;
+}
+
+li::before {
+  content: '';
+  position: absolute;
+  left: 2pt;
+  top: 0.62em;
+  width: 3pt;
+  height: 3pt;
+  border-radius: 50%;
+  background: #222;
+}
+
+.skill + .skill {
+  margin-top: 5pt;
+}
+
+.skill h3 {
+  font-size: 8.4pt;
+  font-weight: 700;
+}

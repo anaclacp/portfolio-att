@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "db:migrate": "node scripts/db.mjs migrate",
     "db:seed": "node scripts/db.mjs seed",
-    "db:seed:clean": "node scripts/db.mjs seed:clean"
+    "db:seed:clean": "node scripts/db.mjs seed:clean",
+    "cv:build": "node scripts/cv.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

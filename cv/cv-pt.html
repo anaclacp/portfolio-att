@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Ana Clara Pereira - Currículo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap">
+  <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+  <header>
+    <h1>Ana Clara Pereira</h1>
+    <span class="role">Desenvolvedora de Software &amp; IA</span>
+  </header>
+
+  <section>
+    <h2>Contato</h2>
+    <div class="contact">
+      <div>
+        <b>Telefone:</b> (16) 99250-2742<br>
+        <b>Email:</b> anaclaracarnavalli@gmail.com<br>
+        <b>Local:</b> Ribeirão Preto/SP
+      </div>
+      <div>
+        <b>Portfólio:</b> <a href="https://portfolio-ana-clara.vercel.app">portfolio-ana-clara.vercel.app</a><br>
+        <b>LinkedIn:</b> <a href="https://linkedin.com/in/anaclacp">linkedin.com/in/anaclacp</a><br>
+        <b>GitHub:</b> <a href="https://github.com/anaclacp">github.com/anaclacp</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Perfil</h2>
+    <p>
+      Desenvolvedora Full Stack Pleno com atuação concentrada em <b>IA Agêntica e LLMs em produção</b>: orquestração de agentes,
+      <i>tool/function calling</i>, memória e planejamento, RAG híbrido e <i>guardrails</i> determinísticos para controle de ações.
+      Experiência ponta a ponta em Python (FastAPI, Pydantic), Clean Architecture e cloud (AWS, Azure OpenAI), com foco em
+      confiabilidade, avaliação de comportamento de agentes e mitigação de falhas. Atualmente cursando a especialização
+      <b>Dev Eficiente</b> e estudando <b>Go</b> para backend de alta performance.
+    </p>
+  </section>
+
+  <section class="splittable">
+    <h2>Experiência<br>Profissional</h2>
+    <div>
+      <div class="job">
+        <h3>Desenvolvedora Full Stack Pleno | Jan 2026 - Atual</h3>
+        <div class="org">Citel Software</div>
+        <ul>
+          <li>Arquitetura e desenvolvimento de plataforma interna de IA <b>multi-tenant</b> (schema-per-tenant, cerca de 400 clientes distribuidores) que permite consultar o ERP em <b>linguagem natural</b> via LLM.</li>
+          <li>Implementação de <b>guardrails e mecanismos de proteção</b>: validadores determinísticos do SQL gerado, <i>whitelist</i> explícita de tabelas, controle de acesso por módulo e validação de inputs/outputs antes da execução de qualquer ação.</li>
+          <li>Injeção dinâmica de dicionário de dados no contexto do agente a partir de metadados, reduzindo alucinação de schema.</li>
+          <li>Desenvolvimento de ferramenta interna de <i>code review</i> assistida por LLM, integrada ao fluxo de pre-commit.</li>
+          <li>Construção de <b>RAG híbrido</b> (denso, esparso BM25 e ColBERT) em <b>Qdrant</b> sobre cerca de 25 mil chunks de documentação técnica do ERP, com reranking e avaliação de recuperação.</li>
+          <li>Otimização do pipeline de ingestão para RAG de aproximadamente 60 minutos para 4 a 5 minutos, via paralelização assíncrona.</li>
+          <li>Desenvolvimento full stack com <b>Python, Node.js, TypeScript e Next.js</b>, incluindo painel superadmin de administração de tenants.</li>
+          <li>Gestão de infraestrutura e ambientes com <b>Docker</b> (criação e manutenção de containers), pipelines de <b>CI/CD</b> e automação de deploys.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Desenvolvedora de Software Júnior (IA) | Jun 2025 - Jan 2026</h3>
+        <div class="org">D3 Works</div>
+        <ul>
+          <li>Desenvolvimento de <b>agentes autônomos</b> com <i>prompt chaining</i> e <i>routing</i>, usando <b>function calling nativo</b> (OpenAI SDK e Groq) e <b>Pydantic</b> para validação estruturada das saídas, em arquitetura própria sem frameworks pesados.</li>
+          <li>Agente de vendas via WhatsApp em produção (FastAPI, MongoDB e n8n), com <i>human-in-the-loop</i>, reengajamento programado e reagendamento proativo a partir de datas extraídas em linguagem natural.</li>
+          <li><b>Validação de comportamento de agentes</b>: análise de 106 sessões reais de conversa, identificação de 4 padrões críticos de falha e iteração de prompts e políticas de decisão a partir dos achados.</li>
+          <li>Orquestração <b>multi-agente com CrewAI e Azure OpenAI</b> em sistema de agentes de diagnóstico, e agentes especializados para o segmento estudantil, com levantamento de requisitos direto com clientes.</li>
+          <li>Pipelines de <b>RAG</b> e ETL sobre documentos e PDFs visuais, com <i>embeddings</i>, chunking e avaliação de qualidade das respostas.</li>
+          <li>Produtos digitais em Python no ecossistema <b>AWS</b> (Serverless Framework, Lambda, SQS, S3), aplicando <b>Clean Code, Clean Architecture e Design Patterns</b>.</li>
+          <li>Cultura de <b>testes automatizados</b> com Pytest (unitários e E2E), garantindo estabilidade das entregas.</li>
+          <li>Infraestrutura e ambientes com <b>Docker</b>, Uvicorn e acesso a servidores via SSH; APIs e <i>triggers</i> em PHP e manipulação de <b>MongoDB</b>.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Desenvolvedora Full Stack Júnior | Jun 2024 - Jun 2025</h3>
+        <div class="org">Citel Software</div>
+        <ul>
+          <li>Desenvolvimento de aplicações com <b>Python, Node.js, TypeScript e Next.js</b>.</li>
+          <li>Implementação de solução de IA com <b>RAG</b> para atendimento a usuários do ERP, aumentando a eficiência do suporte técnico.</li>
+          <li>Acompanhamento e orientação de um estagiário em tarefas técnicas e boas práticas de desenvolvimento.</li>
+          <li>Treinamento prático em <b>AWS</b> (EC2, S3, Lambda), aplicado na integração com APIs REST e na automação de deploys com <b>GitHub Actions</b>.</li>
+          <li>Automação de processos com <b>n8n</b>, incluindo palestra técnica interna sobre casos de uso e integrações com as APIs da empresa.</li>
+          <li>Participação em ritos ágeis (<b>Scrum</b>), <i>code reviews</i> e gestão do fluxo de versionamento no GitHub.</li>
+          <li>Representação da empresa em eventos do setor: <b>Oracle Dev Tour São Paulo</b> (mar 2025) e <b>Oracle IA em Ação</b> (fev 2025).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Educação</h2>
+    <div class="job">
+      <h3>Unaerp, Universidade de Ribeirão Preto (Ago 2021 - Ago 2026)</h3>
+      <div class="org">Engenharia da Computação</div>
+      <ul>
+        <li>TCC Chef AI (nota máxima): aplicativo móvel multiplataforma que identifica itens alimentícios em notas fiscais e em fotos da despensa com o modelo multimodal Gemini, organiza um inventário digital revisável pelo usuário e sugere receitas por meio de um assistente conversacional que respeita restrições e preferências cadastradas. Backend próprio em FastAPI e PostgreSQL com Clean Architecture, orquestração do modelo, validação estruturada das respostas e enriquecimento dinâmico de contexto; front-end em React Native/Expo com TypeScript.</li>
+        <li>Iniciação Científica (25º e 26º CONIC): <i>machine learning</i> para previsão de surtos sazonais com dados meteorológicos e do DataSUS (Random Forest, Gradient Boosting).</li>
+        <li>Uso de R, Python e MySQL para modelagem de dados; PyTorch e Scikit-learn.</li>
+        <li>Desenvolvimento de aplicativos em Java e Flutter; circuitos eletrônicos (Arduino, ESP32, Servo).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Especialização<br>em andamento</h2>
+    <div class="job">
+      <h3>Dev Eficiente</h3>
+      <div class="org"><a href="https://deveficiente.com">deveficiente.com</a></div>
+      <ul>
+        <li>Especialização em desenvolvimento de software com trilha de IA aplicada: agentes, RAG, guardrails, engenharia de prompt e integração de LLMs em sistemas reais.</li>
+        <li>Estudo de Go para backend, com projeto próprio de API financeira (go-ledger-api).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Habilidades<br>técnicas</h2>
+    <div>
+      <div class="skill">
+        <h3>IA e LLMs</h3>
+        <p>Arquiteturas de agentes (multi-agent, tool/function calling, memória, planejamento, reflexão), RAG (denso, BM25 esparso, ColBERT, reranking), embeddings, prompt engineering, guardrails e validação de inputs/outputs, human-in-the-loop, avaliação e testes de comportamento de agentes, mitigação de prompt injection, OpenAI SDK, Google Gemini, Groq, CrewAI, Azure OpenAI</p>
+      </div>
+      <div class="skill">
+        <h3>Linguagens</h3>
+        <p>Python, TypeScript, JavaScript, Java, SQL; Go (em estudo ativo)</p>
+      </div>
+      <div class="skill">
+        <h3>Frameworks e ferramentas</h3>
+        <p>FastAPI, Pydantic, Flask, Node.js, Express, Next.js, React Native, n8n, Serverless Framework, Pytest</p>
+      </div>
+      <div class="skill">
+        <h3>Banco de Dados</h3>
+        <p>PostgreSQL, MySQL, MongoDB, Qdrant (vetorial)</p>
+      </div>
+      <div class="skill">
+        <h3>Cloud e DevOps</h3>
+        <p>AWS (Lambda, SQS, S3, EC2, Serverless Framework), Azure OpenAI, OCI, Docker, Git, GitHub Actions CI/CD, Linux/SSH</p>
+      </div>
+      <div class="skill">
+        <h3>Engenharia de software</h3>
+        <p>Clean Code, Clean Architecture, Design Patterns, testes unitários e E2E, code review, Scrum</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ensino e<br>comunidade</h2>
+    <ul>
+      <li>Ministrante do minicurso <b>Introdução ao n8n</b> na UNAERP (3 dias): fundamentos de HTTP, workflows multi-etapa e padrões de agentes de IA com LLMs.</li>
+      <li>Palestra técnica interna sobre automação e integração de APIs com n8n.</li>
+      <li>Documentação técnica e roadmaps de produto para times de engenharia.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Idiomas</h2>
+    <p class="inline"><b>Inglês:</b> Avançado (C1) &nbsp;|&nbsp; <b>Português:</b> Nativo</p>
+  </section>
+
+  <section>
+    <h2>Soft skills</h2>
+    <p>Comunicação clara e eficaz, tradução de riscos técnicos em impacto de negócio, trabalho em times multidisciplinares, proatividade e autonomia, aprendizado contínuo, resolução de problemas, liderança técnica.</p>
+  </section>
+</body>
+</html>
