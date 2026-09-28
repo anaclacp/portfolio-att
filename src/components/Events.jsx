@@ -5,12 +5,12 @@ const eventsMeta = [
   {
     date: "2025",
     image: "/images/oracle-dev-tour.jpg",
-    linkedin: "https://www.linkedin.com/posts/anaclacp_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-mO92?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_hoje-tive-a-oportunidade-de-participar-do-activity-7310798785679441920-mO92/",
   },
   {
     date: "2025",
     image: "/images/palestra-n8n.jpg",
-    linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-automaaexaeto-citel-activity-7296293143128244226-6FPq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADdEsl4B-Ekanl7KoM9f16jspnv4zBFKKGs",
+    linkedin: "https://www.linkedin.com/posts/anaclacp_n8n-automaaexaeto-citel-activity-7296293143128244226-6FPq/",
   },
   {
     date: "2025",
