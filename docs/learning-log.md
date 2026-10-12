@@ -1,5 +1,72 @@
 # Learning Log
 
+## Conteúdo editorial e trilhas (atualização local)
+
+O arquivo `src/data/learning.ts` centraliza estudos atuais, certificações, trilhas,
+livros, projetos, atividades e aprendizados. Ele tem tipos próprios e conteúdo em
+português e inglês. A página mantém o visual e os componentes do portfólio e funciona
+com esse conteúdo mesmo sem conexão com o Neon.
+
+Os registros do painel continuam funcionando: quando título e tipo coincidem,
+os valores do banco têm prioridade. Variações de edição de `AI Agents in Action`
+e `Hands-On Machine Learning` também são reconhecidas. Livros e projetos continuam
+nas seções existentes, sem uma segunda estante. `Entendendo Algoritmos` é reconhecido
+como a edição traduzida de `Grokking Algorithms`, e `Responsible AI` corresponde
+ao estudo atual de governança. A data de início dos estudos atuais informada para
+esta atualização local tem prioridade sobre datas antigas do painel.
+Não há escrita automática no banco.
+
+### Atualizar conteúdo sem editar JSX
+
+- **Estudos atuais:** edite `currentLearning`; datas e progresso são opcionais.
+- **Trilhas e checklist:** edite `topicStatuses`, usando os IDs dos tópicos.
+  Exemplo: `{ 'claude-1': 'learning', 'claude-2': 'completed' }`. Os IDs são
+  prefixo + posição (começando em 1); preserve a ordem dos tópicos existentes.
+  Valores aceitos: `not_started`, `learning`, `completed`. A barra usa somente
+  o número de tópicos concluídos. Nenhum marco foi presumido como concluído.
+- **Certificações:** edite `certifications`. `preparing` significa preparação,
+  nunca certificação obtida. Use `earned` apenas após aprovação, com `completedAt`
+  real e `credentialUrl` opcional. O tipo impede credenciais em uma preparação.
+  O campo `officialUrl` aponta para a certificação oficial, não para uma credencial pessoal.
+- **Livros e recursos:** edite `learningResources`, com `completed`, `in_progress`
+  ou `planned`. `notes: { pt: '…', en: '…' }` adiciona notas pessoais. Registros
+  do painel também continuam aparecendo na estante e na lista de leituras.
+- **Prática:** edite `practicalProjects`; não preencha tecnologias sem confirmação.
+- **Aprendizados:** edite `studyInsights`, com categoria, texto bilíngue e `pathIds`.
+
+Para adicionar uma atividade real, inclua um objeto em `learningEntries`:
+
+```ts
+// Modelo: substitua todos os valores por informações reais antes de adicionar.
+{
+  id: 'id-unico',
+  date: 'AAAA-MM-DD',
+  title: 'Assunto estudado',
+  type: 'practice',
+  description: { pt: 'O que foi feito.', en: 'What was done.' },
+  pathIds: ['claude-agents'],
+  topics: ['MCP'],
+  resourceUrl: 'URL opcional',
+  githubUrl: 'URL opcional',
+}
+```
+
+As atividades ficam vazias até haver datas reais. A linha do tempo anterior
+continua mostrando registros datados do painel e do conteúdo local. Os estudos
+atuais e a preparação da certificação começam em 7 de outubro de 2026, conforme
+informado, e exibem o período até o momento. Os filtros combinam busca,
+trilha e status; atividades e aprendizados não possuem status e respondem apenas
+à busca e à trilha. Os `pathIds` válidos são `claude-agents`, `responsible-ai`
+e `ai-engineering`; eles conectam as seções sem duplicar conteúdo.
+
+Validação local: `npm run typecheck` verifica o novo conteúdo TypeScript;
+`npm run test:learning` (Node 22.6+) valida integração, referências, filtros e
+progresso; `npm run build` verifica o bundle. O restante do projeto continua JSX.
+Não existe comando de lint configurado atualmente.
+
+Para visualizar: `npm run dev` e abra `/learning` no endereço local exibido.
+Nada nesta atualização exige commit, push, migração de banco ou deploy.
+
 Registro público de estudos, livros, cursos e pesquisas, em `/learning`, com painel
 de edição em `/admin/learning`.
 

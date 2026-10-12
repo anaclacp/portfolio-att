@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "typecheck": "tsc --project tsconfig.learning.json",
+    "test:learning": "node --experimental-strip-types --test tests/learning-content.test.mjs",
     "db:migrate": "node scripts/db.mjs migrate",
     "db:seed": "node scripts/db.mjs seed",
     "db:seed:clean": "node scripts/db.mjs seed:clean",
@@ -25,6 +27,7 @@
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
+    "typescript": "^7.0.2",
     "vite": "^5.0.0"
   }
 }

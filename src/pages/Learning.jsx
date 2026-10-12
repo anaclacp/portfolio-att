@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
 import usePageMeta from '../hooks/usePageMeta'
@@ -5,7 +6,6 @@ import useLearningItems from '../hooks/useLearningItems'
 import { groupItems, buildTimeline } from '../lib/learningFormat'
 import LanguageToggle from '../components/ui/LanguageToggle'
 import Footer from '../components/Footer'
-import SectionHeading from '../components/learning/SectionHeading'
 import EmptyState from '../components/learning/EmptyState'
 import LearningCard from '../components/learning/LearningCard'
 import CurrentlyReading from '../components/learning/CurrentlyReading'
@@ -14,6 +14,8 @@ import Bookshelf from '../components/learning/Bookshelf'
 import ReadingList from '../components/learning/ReadingList'
 import ProjectList from '../components/learning/ProjectList'
 import Timeline from '../components/learning/Timeline'
+import { curatedItems, mergeLearningItems, matchesLearning } from '../lib/learningContent'
+import { JournalSection, LearningFilters, CertificationSection, LearningPathsSection, LearningActivitySection, LearningInsightsSection, journalCopy } from '../components/learning/LearningJournal'
 
 function TopBar() {
   const { t } = useLanguage()
@@ -34,69 +36,22 @@ function TopBar() {
   )
 }
 
-/** Esqueleto durante o carregamento, no lugar de um spinner solto. */
-function LoadingSkeleton() {
-  return (
-    <div className="space-y-4" aria-hidden>
-      {[0, 1].map((i) => (
-        <div key={i} className="card-soft rounded-2xl p-6">
-          <div className="h-4 w-1/3 bg-white/8 rounded mb-4 animate-pulse" />
-          <div className="h-3 w-2/3 bg-white/5 rounded mb-2 animate-pulse" />
-          <div className="h-3 w-1/2 bg-white/5 rounded animate-pulse" />
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function ErrorState({ kind, onRetry }) {
-  const { t } = useLanguage()
-
-  return (
-    <div className="card-soft rounded-2xl p-8 text-center">
-      <p className="font-display text-base font-semibold text-white mb-2">
-        {t.learning.error.title}
-      </p>
-      {kind === 'notConfigured' && (
-        <p className="text-gray-400 text-sm mb-5">{t.learning.error.notConfigured}</p>
-      )}
-      {kind !== 'notConfigured' && (
-        <button
-          type="button"
-          onClick={onRetry}
-          className="btn-ghost px-5 py-2 rounded-full text-sm font-medium"
-        >
-          {t.learning.error.retry}
-        </button>
-      )}
-    </div>
-  )
-}
-
-/** Renderiza a seção só quando há o que mostrar, sem deixar bloco vazio. */
-function Section({ title, count, children }) {
-  return (
-    <section>
-      <div data-reveal>
-        <SectionHeading count={count}>{title}</SectionHeading>
-      </div>
-      <div data-reveal style={{ '--reveal-delay': '90ms' }}>{children}</div>
-    </section>
-  )
-}
-
 function Learning() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const { items, loading, error, reload } = useLearningItems()
+  const [filters, setFilters] = useState({ query: '', path: '', status: '' })
+  const c = journalCopy[lang]
 
   usePageMeta({
     title: t.learning.metaTitle,
     description: t.learning.metaDescription,
   })
 
-  const { current, recent, books, readings, projects, reading } = groupItems(items)
-  const timeline = buildTimeline(items)
-  const isEmpty = !loading && !error && items.length === 0
+  const allItems = mergeLearningItems(curatedItems(lang), items)
+  const visibleItems = allItems.filter(item => matchesLearning(item, filters, lang))
+  const { current, recent, books, readings, projects, reading } = groupItems(visibleItems)
+  // Only explicitly recorded dates (local content or admin records) enter this timeline.
+  const timeline = buildTimeline(visibleItems)
 
   return (
     <>
@@ -113,21 +68,23 @@ function Learning() {
             </p>
           </header>
 
-          {loading && <LoadingSkeleton />}
-          {!loading && error && <ErrorState kind={error} onRetry={reload} />}
-          {isEmpty && <EmptyState message={t.learning.empty.all} />}
+          <nav aria-label={c.navigation} className="learning-section-nav mb-8">
+            {[[ 'current', t.learning.sections.current ], ['certifications', c.certifications], ['paths', c.paths], ['resources', t.learning.sections.bookshelf], ['practice', lang === 'pt' ? 'Conhecimento na prática' : 'Knowledge in practice'], ['activity', c.activity], ['insights', c.insights]].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}
+          </nav>
+          <LearningFilters filters={filters} setFilters={setFilters} />
+          {loading && <p role="status" className="text-xs text-gray-400 mb-8">{lang === 'pt' ? 'Carregando registros adicionais do diário…' : 'Loading additional journal records…'}</p>}
+          {!loading && error && error !== 'notConfigured' && <div role="status" className="text-sm text-gray-400 mb-8">{lang === 'pt' ? 'Não foi possível carregar os registros do painel. O conteúdo local continua disponível.' : 'Could not load admin records. Local content is still available.'} <button type="button" className="learning-link" onClick={reload}>{t.learning.error.retry}</button></div>}
 
-          {!loading && !error && !isEmpty && (
-            <div className="space-y-20">
-              <Section title={t.learning.sections.current} count={current.length}>
+            <div className="space-y-20" aria-live="polite" aria-atomic="false">
+              <JournalSection id="current" title={t.learning.sections.current} count={current.length}>
                 {current.length > 0 ? (
-                  <div className="grid md:grid-cols-2 gap-5">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {current.map((item) => (
                       <LearningCard key={item.id} item={item} />
                     ))}
                   </div>
                 ) : (
-                  <EmptyState message={t.learning.empty.current} />
+                  <EmptyState message={c.empty} />
                 )}
 
                 {reading && (
@@ -135,41 +92,39 @@ function Learning() {
                     <CurrentlyReading item={reading} />
                   </div>
                 )}
-              </Section>
+              </JournalSection>
 
-              <Section title={t.learning.sections.bookshelf} count={books.length}>
+              <CertificationSection filters={filters} items={allItems} />
+              <LearningPathsSection filters={filters} />
+
+              <JournalSection id="resources" title={lang === 'pt' ? 'Livros & recursos' : 'Books & resources'} count={books.length + readings.length}>
                 {books.length > 0 ? (
                   <Bookshelf items={books} />
                 ) : (
-                  <EmptyState message={t.learning.empty.bookshelf} />
+                  readings.length === 0 && <EmptyState message={c.empty} />
                 )}
-              </Section>
-
-              {readings.length > 0 && (
-                <Section title={t.learning.sections.readings} count={readings.length}>
-                  <ReadingList items={readings} />
-                </Section>
-              )}
+                {readings.length > 0 && <div className={books.length ? 'mt-8' : ''}><ReadingList items={readings} /></div>}
+              </JournalSection>
 
               {recent.length > 0 && (
-                <Section title={t.learning.sections.recent} count={recent.length}>
+                <JournalSection id="recent" title={t.learning.sections.recent} count={recent.length}>
                   <RecentList items={recent} />
-                </Section>
+                </JournalSection>
               )}
 
-              {projects.length > 0 && (
-                <Section title={t.learning.sections.projects} count={projects.length}>
-                  <ProjectList items={projects} />
-                </Section>
-              )}
+              <JournalSection id="practice" title={lang === 'pt' ? 'Conhecimento na prática' : 'Knowledge in practice'} count={projects.length}>
+                {projects.length > 0 ? <ProjectList items={projects} /> : <EmptyState message={c.empty} />}
+              </JournalSection>
+
+              <LearningActivitySection filters={filters} />
 
               {timeline.length > 0 && (
-                <Section title={t.learning.sections.timeline}>
+                <JournalSection id="timeline" title={t.learning.sections.timeline}>
                   <Timeline groups={timeline} />
-                </Section>
+                </JournalSection>
               )}
+              <LearningInsightsSection filters={filters} />
             </div>
-          )}
         </div>
       </main>
 

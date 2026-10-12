@@ -2,6 +2,14 @@ import { READING_TYPES, TOPIC_TYPES, acceptsProgress } from './learningTypes.js'
 
 const LOCALES = { pt: 'pt-BR', en: 'en-US' }
 
+/** Exact date for explicitly recorded study starts; legacy period formatting stays unchanged. */
+export function formatLearningDate(value, lang = 'pt') {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return null
+  return new Intl.DateTimeFormat(LOCALES[lang] || LOCALES.pt, {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+  }).format(new Date(`${value}T00:00:00Z`))
+}
+
 /** Quebra "YYYY-MM-DD" em componentes numéricos, ou null se não for uma data. */
 function parts(value) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || '')

@@ -1,5 +1,5 @@
 import { useLanguage } from '../../i18n/LanguageContext'
-import { formatPeriod, hasProgress } from '../../lib/learningFormat'
+import { formatPeriod, formatLearningDate, hasProgress } from '../../lib/learningFormat'
 import { statusLabel, typeLabel } from '../../lib/learningLabels'
 import ProgressBar from './ProgressBar'
 import RelatedProject from './RelatedProject'
@@ -8,7 +8,8 @@ import Tags from './Tags'
 /** Card de um item em andamento: título, status, progresso, tags e datas. */
 function LearningCard({ item }) {
   const { t, lang } = useLanguage()
-  const periodo = formatPeriod(item, lang)
+  const ongoing = item.startedAt && item.started_at && !item.completed_at && ['in_progress', 'studying', 'reading'].includes(item.status)
+  const periodo = ongoing ? `${formatLearningDate(item.started_at, lang)} — ${lang === 'pt' ? 'atual' : 'present'}` : formatPeriod(item, lang)
 
   return (
     <article className="card-glow rounded-2xl p-6 flex flex-col group">
@@ -52,7 +53,7 @@ function LearningCard({ item }) {
           <span />
         )}
 
-        {item.external_url && (
+        {item.external_url && !item.resources?.length && (
           <a
             href={item.external_url}
             target="_blank"
@@ -63,6 +64,11 @@ function LearningCard({ item }) {
           </a>
         )}
       </div>
+
+      {item.resources?.length > 0 && <div className="flex flex-wrap gap-4 mt-4">{item.resources.map(resource => (
+        <a key={resource.url} href={resource.url} target="_blank" rel="noopener noreferrer" className="learning-link">{resource.title} <span aria-hidden>↗</span></a>
+      ))}</div>}
+      {item.notes && <p className="learning-personal-note mt-4">{item.notes}</p>}
 
       <RelatedProject item={item} />
     </article>

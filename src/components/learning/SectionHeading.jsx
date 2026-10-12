@@ -2,7 +2,7 @@
 function SectionHeading({ children, count }) {
   return (
     <div className="flex items-center gap-4 mb-7">
-      <h2 className="font-display text-xs font-medium text-purple-light uppercase tracking-[0.2em] whitespace-nowrap">
+      <h2 className="font-display text-xs font-medium text-purple-light uppercase tracking-[0.2em]">
         {children}
       </h2>
       {typeof count === 'number' && count > 0 && (

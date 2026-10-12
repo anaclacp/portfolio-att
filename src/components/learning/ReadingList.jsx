@@ -46,6 +46,7 @@ function ReadingList({ items }) {
             )}
 
             <Tags items={item.tags} className="mb-3" />
+            {item.notes && <p className="learning-personal-note mb-3">{item.notes}</p>}
 
             {item.external_url && (
               <a

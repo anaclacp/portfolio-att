@@ -40,6 +40,7 @@ function ProjectList({ items }) {
           )}
 
           <Tags items={item.tags} className="mb-3" />
+          {item.notes && <p className="learning-personal-note mb-3">{item.notes}</p>}
 
           {item.repository_url && (
             <a

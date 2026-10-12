@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLanguage } from '../../i18n/LanguageContext'
 import { formatPeriod, hasProgress } from '../../lib/learningFormat'
 import { statusLabel } from '../../lib/learningLabels'
+import Tags from './Tags'
 
 /**
  * Capa do livro. Sem cover_url, ou se a imagem falhar ao carregar, cai numa
@@ -86,20 +87,18 @@ function BookCard({ item }) {
     </>
   )
 
-  if (item.external_url) {
-    return (
-      <a
+  return <article className="min-w-0">
+    {item.external_url ? <a
         href={item.external_url}
         target="_blank"
         rel="noopener noreferrer"
         className="group/book block"
       >
         {body}
-      </a>
-    )
-  }
-
-  return <div className="group/book">{body}</div>
+      </a> : <div className="group/book">{body}</div>}
+    {item.tags?.length > 0 && <Tags items={item.tags} className="mt-3" />}
+    {item.notes && <details className="learning-details mt-3"><summary>{lang === 'pt' ? 'Notas pessoais' : 'Personal notes'}</summary><p className="learning-personal-note mt-2">{item.notes}</p></details>}
+  </article>
 }
 
 export default BookCard
