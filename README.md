@@ -1,6 +1,6 @@
 # Portfólio de Ana Clara
 
-> Site pessoal de **Ana Clara Pereira**, Responsible AI Senior Analyst na Accenture e engenheira da computação, com experiência em **IA generativa, agentes, RAG e construção de sistemas de IA**.
+> Site pessoal de **Ana Clara Pereira**, Senior Responsible AI Engineer na Accenture e engenheira da computação, com experiência em **IA generativa, agentes, RAG e construção de sistemas de IA**.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)

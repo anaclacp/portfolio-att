@@ -2,9 +2,9 @@ export const translations = {
   pt: {
     meta: {
       htmlLang: 'pt-BR',
-      title: 'Ana Clara Pereira | Responsible AI Senior Analyst',
+      title: 'Ana Clara Pereira | Senior Responsible AI Engineer',
       description:
-        'Portfólio de Ana Clara Pereira, Responsible AI Senior Analyst na Accenture e engenheira da computação com experiência em IA generativa, agentes, RAG, Python e desenvolvimento de sistemas de IA.',
+        'Portfólio de Ana Clara Pereira, Senior Responsible AI Engineer na Accenture e engenheira da computação com experiência em IA generativa, agentes, RAG, Python e desenvolvimento de sistemas de IA.',
     },
 
     nav: {
@@ -20,7 +20,7 @@ export const translations = {
     },
 
     hero: {
-      badge: 'Responsible AI Senior Analyst @ Accenture',
+      badge: 'Senior Responsible AI Engineer @ Accenture',
       role: 'AI Engineering · Generative AI · Python',
       description:
         'Engenheira da Computação e desenvolvedora de sistemas de IA, com experiência em Python, IA generativa, agentes e aplicações end-to-end, atualmente atuando com Responsible AI.',
@@ -32,7 +32,7 @@ export const translations = {
       titleAccent: 'mim',
       p1Before: 'Sou engenheira da computação formada pela ',
       p1Highlight1: 'UNAERP',
-      p1Middle: ' e atualmente trabalho como Responsible AI Senior Analyst na ',
+      p1Middle: ' e atualmente trabalho como Senior Responsible AI Engineer na ',
       p1Highlight2: 'Accenture',
       p1After:
         '. Tenho experiência prática no desenvolvimento de sistemas com Inteligência Artificial aplicada, utilizando principalmente Python, FastAPI, TypeScript, bancos de dados, APIs e integrações com modelos de linguagem.',
@@ -451,9 +451,9 @@ export const translations = {
   en: {
     meta: {
       htmlLang: 'en',
-      title: 'Ana Clara Pereira | Responsible AI Senior Analyst',
+      title: 'Ana Clara Pereira | Senior Responsible AI Engineer',
       description:
-        'Portfolio of Ana Clara Pereira, Responsible AI Senior Analyst at Accenture and computer engineer with experience in generative AI, agents, RAG, Python and AI system development.',
+        'Portfolio of Ana Clara Pereira, Senior Responsible AI Engineer at Accenture and computer engineer with experience in generative AI, agents, RAG, Python and AI system development.',
     },
 
     nav: {
@@ -469,10 +469,10 @@ export const translations = {
     },
 
     hero: {
-      badge: 'Responsible AI Senior Analyst @ Accenture',
+      badge: 'Senior Responsible AI Engineer @ Accenture',
       role: 'AI Engineering · Generative AI · Python',
       description:
-        'Computer engineer with experience building solutions involving LLMs, RAG, agents, APIs and automations. I currently work as a Responsible AI Senior Analyst at Accenture, widening my focus to the evaluation, reliability, responsible use and engineering of AI systems.',
+        'Computer engineer with experience building solutions involving LLMs, RAG, agents, APIs and automations. I currently work as a Senior Responsible AI Engineer at Accenture, widening my focus to the evaluation, reliability, responsible use and engineering of AI systems.',
       ctaProjects: 'View projects',
       ctaContact: 'Get in touch',
     },
@@ -482,7 +482,7 @@ export const translations = {
       titleAccent: 'me',
       p1Before: 'I am a computer engineer with a degree from ',
       p1Highlight1: 'UNAERP',
-      p1Middle: ' and I currently work as a Responsible AI Senior Analyst at ',
+      p1Middle: ' and I currently work as a Senior Responsible AI Engineer at ',
       p1Highlight2: 'Accenture',
       p1After:
         '. I have hands-on experience building systems with applied Artificial Intelligence, working mainly with Python, FastAPI, TypeScript, databases, APIs and language model integrations.',
